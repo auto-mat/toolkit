@@ -1,0 +1,131 @@
+# Form fields, labels, hints, placeholders, and error messages
+
+"cs-CZ":
+  cancel: "Cancel"
+
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            full_name:
+              blank: "Please enter a name"
+              email: "Please enter an email address"
+
+  formtastic:
+    labels:
+      group:
+        name: "Name of the group"
+        short_name: "Subdomain"
+      group_membership:
+        role: "Membership type"
+      issue:
+        new: &labels_issue_new
+          description: "Write a description"
+          location: "Provide a location"
+          photo: "Add a photo"
+          tags_string: "Tag your issue"
+          title: "Title your report"
+        create: *labels_issue_new
+        edit: *labels_issue_new
+        update: *labels_issue_new
+        tags_string: "Tags"
+      library_document:
+        file: "Document"
+        tags_string: "Tags"
+      library_item:
+        tags_string: "Tags"
+      library_note:
+        body: "Note"
+        tags_string: "Tags"
+      link_message:
+        url: "URL"
+      message:
+        body: "Message"
+      message_thread:
+        group: "Owned by"
+        tags_string: "Tags"
+      site_comment:
+        body: "Message"
+      thread_subscription:
+        send_email: "Email new messages"
+      user_pref:
+        enable_email: "Enable email notifications"
+        involve_my_locations: "Matters near my locations"
+        involve_my_groups: "My group's matters"
+        involve_my_groups_admin: "Also involve me in my group's administrative discussions"
+      user:
+        edit:
+          password: "New Password"
+          password_confirmation: "New Password Confirmation"
+    hints:
+      user:
+        edit:
+          password: "Leave this blank to keep your current password."
+          current_password: "Please confirm your current password to make changes on this page."
+      group:
+        short_name: "Must be lower-case alphanumeric; a-z, 0-9"
+      group_membership:
+        role: "Select if they are a normal or committee member of the group."
+        full_name: "Please enter their name; they can change this when they accept the invite."
+      group_profile:
+        joining_instructions: "The joining instructions are shown to people who want to join this Cyclescape group. You might want to direct people to pay for membership elsewhere first, for example, or you might be happy for everyone and anyone to join your Cyclescape group. You can leave this blank."
+      issue:
+        new: &hints_issue_new
+          description: "Please give details about the problem and what effect it is having on cycling. Note that all issues are publicly viewable."
+          photo: "(optional)"
+          tags_string: "e.g. cycleparking obstruction roadworks path"
+          title: "Please be brief and specific."
+        create: *hints_issue_new
+        edit: *hints_issue_new
+        update: *hints_issue_new
+      message_thread:
+        privacy: "This specifies who can see and edit this discussion thread."
+        issue: "This specifies which issue this discussion thread is attached to. If none, this will be an administrative thread."
+    actions:
+      update: "Save"
+      saving: "Saving\u2026"
+      cancel: "Cancel"
+      deadline_message:
+        create: "Add Deadline"
+      document_message:
+        create: "Add Attachment"
+      group_membership:
+        create: "Invite member"
+      issue:
+        create: "Send Report"
+        update: "Save Report"
+        update_tags: "Update Tags"
+      library_item:
+        update_tags: "Update Tags"
+      library_item_message:
+        create: "Add Library Item"
+      library/document:
+        create: "Upload"
+        document_from_message: "Add to Library"
+      library/note:
+        create: "Create Note"
+        attach_to_document: "Attach note"
+      link_message:
+        create: "Add Link"
+      message:
+        create: "Post Message"
+      message_thread:
+        create: "Create Thread"
+        update_tags: "Update Tags"
+      photo_message:
+        create: "Add Photo"
+      site_comment:
+        create: "Send Feedback"
+      user:
+        create: "Sign up"
+        update: "Update Account"
+      user_location:
+        create: "Save this location"
+      user_profile:
+        create: "Save"
+      user_thread_priority:
+        create: "Save"
+      thread_subscription:
+        create: "Follow this thread"
+        delete: "Unfollow this thread"
