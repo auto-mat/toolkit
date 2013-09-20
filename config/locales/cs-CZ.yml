@@ -1,25 +1,25 @@
-# Czech translations for Ruby on Rails
+# GB English translations for Ruby on Rails
 
 "cs-CZ":
-  application_name: "Cyclescape"
-  tags: "Tags"
-  sign_in: "sign in"  # Used for links
+  application_name: "Cyklisté sobě"
+  tags: "Tagy"
+  sign_in: "přihlásit"  # Used for links
   admin:
     groups:
       index:
-        title: "Groups"
-        new_group: "New group"
-        edit: "Edit"
-        edit_profile: "Edit Profile"
-        members: "Members"
-        name: "Group Name"
+        title: "Skupiny"
+        new_group: "Nová skupina"
+        edit: "upravit"
+        edit_profile: "Upravit profil"
+        members: "Členové"
+        name: "Název skupiny"
       create:
-        success: "Group created"
+        success: "Vytvořená skupina"
       new:
-        title: "Add a new group"
-        introduction: "As a system administrator, you can use this form to create a new group."
+        title: "Přidat skupinu"
+        introduction: "Jelikož jste systémový administrátor, můžete použít tento formulář pro vytvoření nové skupiny."
       update:
-        success: "Group updated"
+        success: "Skupina upravena"
     home:
       index:
         admin_interface: "Administrative area"
@@ -57,7 +57,7 @@
     permission_denied: "You are not authorised to access that page."
   dashboards:
     show:
-      add_a_new_issue: "add a new issue"
+      add_a_new_issue: "přidat nový podnět"
       add_another_location: "add another location"
       add_some_locations: "add some locations"
       areas_you_are_watching: "areas you are watching"
@@ -68,7 +68,7 @@
       deadlines: "Deadlines and dates"
       deadline_thread_updated: "thread updated %{at}"
       involved_threads: "Involved Threads"
-      issues_in_your_area: "Issues in your area"
+      issues_in_your_area: "Podněty ve vaší oblasti"
       new_group_thread: "Start a new group thread"
       my_issues_nearby_introduction_html: "Issues in the %{areas_you_are_watching_link} are shown below, most recent first."
       my_issues_nearby_issues_pointer_html: "(You can also %{browse_all_other_issues_link} from outside your area(s).)"
@@ -96,7 +96,7 @@
         Recent threads with activity from your groups.
       my_priorities: "My priorities"
       my_threads: "My subscribed threads"
-      issues_nearby: "Latest issues nearby"
+      issues_nearby: "Nejnovější podněty poblíž"
       posted:
         message_html: "%{creator_link} posted a message"
         deadline_message_html: "%{creator_link} posted a deadline/date"
@@ -107,7 +107,7 @@
     search:
       no_results_found: "No results found for '%{query}'"
       thread_results: "Threads (%{count})"
-      issue_results: "Issues (%{count})"
+      issue_results: "Podněty (%{count})"
       library_results: "Library (%{count})"
       threads_found:
         zero: "No threads found for '%{query}'."
@@ -212,7 +212,7 @@
       index:
         title: "Discussion threads of %{group}"
         threads_explanation_html: "Each of the %{issues_link} may have one or more discussion threads."
-        issues: "issues"
+        issues: "podněty"
         new_group_thread: "New Group Administrative thread"
         issue_threads: "Issue discussions"
         issue_threads_description: "These are public and private issue-based discussions belonging to %{group_name} on reported issues, shown most recent first."
@@ -257,14 +257,14 @@
   home:
     show:
       introduction_html:
-        Cyclescape is an online campaigning toolkit for
-        cycle campaign groups around the UK
+        Chodci sobě je nástroj na podporu místních skupin
+        snažících se o zlepšení podmínek pro jízdu na kole
       center_box_title:
         Report your cycling issues here
       center_box_html:
         Non-existent cycle paths? Obstructions for cyclists? Lack of cycle parking?
         Or an example of something done right?
-      report_an_issue: "Report an issue"
+      report_an_issue: "Přidat podnět"
       latest_discussions: "Latest Discussions"
       groups_title: "Cyclescape Groups"
       groups_intro_html:
@@ -273,10 +273,10 @@
         they're working to fix.
       twitter_title: "Cyclescape on Twitter"
     guide:
-      title: "How Cyclescape Works"
-      box_1_title: "Report cycling issues"
+      title: "Jak funguje Cyklisté sobě"
+      box_1_title: "Přidejte cyklistický podnět"
       box_1_body: "Quickly raise issues on this site."
-      box_2_title: "Get advice from others"
+      box_2_title: "Získejte rady od ostatních"
       box_2_body: "Discuss issues with members of cycling groups."
       box_3_title: "Make a difference"
       box_3_body: "Organise the action the group should take to resolve an issue."
@@ -306,8 +306,8 @@
       title: "Edit Issue"
     index:
       new_issue: "Report new issue"
-      title: "Issues"
-      list_tab: "List"
+      title: "Podněty"
+      list_tab: "Seznam"
       list_introduction: "Reported issues, most recent first:"
       list_introduction_groupwise_html: "Reported issues, most recent first, limited to the %{area_of_group_link}:"
       area_of_group: "area of %{group_name}"
@@ -324,7 +324,7 @@
       title_introduction_report_html: "You can %{report_new_issue_link} using the button on the right."
       report_new_issue: "report a new issue"
     new:
-      title: "Report an issue"
+      title: "Přidat podnět"
       new_issue_introduction: "Know of something stopping more people cycling, or that causes problems for existing cyclists? Or something that could do? Report it below."
       admin_thread_pointer_html: "You can %{administrative_matters_link} with no geographical context (e.g. organising a general meeting) in the group admin threads section."
       administrative_matters: "add a purely administrative matter"
@@ -372,7 +372,7 @@
       dashboard_tooltip: "Your personal dashboard, showing updates on discussion threads you are subscribed to"
       feedback: "Feedback"
       home: "Home"
-      issues: "Issues"
+      issues: "Podněty"
       issues_tooltip: "Reported problems, browsable on the map or as a list"
       library: "Library"
       library_tooltip: "Reusable resources for campaigning"
@@ -661,7 +661,7 @@
         close: "< Back to site"
   tags:
     show:
-      issues: "Issues"
+      issues: "Podněty"
       library_items: "Library Items"
       no_results_found: "No results found"
       threads: "Threads"
@@ -770,7 +770,7 @@
         no_website: "None"
         profile_picture_title: "%{name}'s picture"
         recent_threads: "Recent Threads"
-        reported_issues: "Reported Issues"
+        reported_issues: "Podané podněty"
         user_profile: "User Profile"
         website_label: "Web site:"
       update:
@@ -783,50 +783,50 @@
       long: "%d %B %Y"
 
     day_names:
-      - Sunday
-      - Monday
-      - Tuesday
-      - Wednesday
-      - Thursday
-      - Friday
-      - Saturday
+      - neděle
+      - pondělí
+      - úterý
+      - středa
+      - čtvrtek
+      - pátek
+      - sobota
     abbr_day_names:
-      - Sun
-      - Mon
-      - Tue
-      - Wed
-      - Thu
-      - Fri
-      - Sat
+      - ne
+      - po
+      - út
+      - st
+      - čt
+      - pá
+      - so
 
     month_names:
       - ~
-      - January
-      - February
-      - March
-      - April
-      - May
-      - June
-      - July
-      - August
-      - September
-      - October
-      - November
-      - December
+      - Leden
+      - Únor
+      - Březen
+      - Duben
+      - Květen 
+      - Červen
+      - Červenec
+      - Srpen
+      - Září
+      - Říjen
+      - Listopad
+      - Prosinec
     abbr_month_names:
       - ~
-      - Jan
-      - Feb
-      - Mar
-      - Apr
-      - May
-      - Jun
-      - Jul
-      - Aug
-      - Sep
-      - Oct
-      - Nov
-      - Dec
+      - Led
+      - Úno
+      - Bře
+      - Dub
+      - Kvě
+      - Čer
+      - Črc
+      - Srp
+      - Zář
+      - Říj
+      - Lis
+      - Pro
     order:
       - :day
       - :month
@@ -843,11 +843,11 @@
   support:
     array:
       words_connector: ", "
-      two_words_connector: " and "
-      last_word_connector: ", and "
+      two_words_connector: " a "
+      last_word_connector: ", a "
 
     select:
-      prompt: "Please select"
+      prompt: "Prosím vyberte"
 
   number:
     format:
