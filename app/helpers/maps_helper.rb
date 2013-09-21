@@ -32,7 +32,7 @@ module MapsHelper
   def tiny_display_map(object, geometry_url, prefix, &block)
     dom_id = dom_id(object, prefix)
     @map = core_map(dom_id) do |map, page|
-      page << map.add_layer(MapLayers::OPENCYCLEMAP)
+      page << map.add_layer(MapLayers::PNK_MAP)
       add_formats(page)
       centre_map(object.location, map, page)
       add_location_layer("Location", geometry_url, OpenLayers::Strategy::Fixed.new(), map, page)
