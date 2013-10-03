@@ -126,6 +126,8 @@
         create: "Vložit termín"
       document_message:
         create: "Vložit přílohu"
+      group:
+        create: "Vytvořit skupinu"
       group_membership_request:
           create: "Vytvořit žádost o členství ve skupině"
       group_membership:
