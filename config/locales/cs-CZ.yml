@@ -29,7 +29,7 @@
       index:
         admin_interface: "Správa"
         admin_interface_introduction: "Tento oddíl obsahuje funkce správy dostupné pouze správcům."
-        manage_comments: "Spravovat komentáře"
+        manage_comments: "Spravovat zpětné vazby"
         manage_groups: "Spravovat skupiny"
         manage_issue_categories: "Spravovat kategorie podnětů"
         manage_users: "Spravovat uživatele"
