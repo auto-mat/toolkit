@@ -130,7 +130,7 @@
       group:
         create: "Vytvořit skupinu"
       group_membership_request:
-          create: "Vytvořit žádost o členství ve skupině"
+          create: "Požádat o členství ve skupině"
       group_membership:
         create: "Pozvat člena"
       issue:
