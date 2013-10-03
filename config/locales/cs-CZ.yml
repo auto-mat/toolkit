@@ -11,6 +11,7 @@
         actions: "Akce"
         new_group: "Vytvořit novou skupinu"
         edit: "Upravit"
+        edit_prefs: "Upravit nastavení"
         edit_profile: "Upravit profil"
         group_email: "Email skupiny"
         members: "Členové"
@@ -137,6 +138,7 @@
         title: "Přihlásit"
         sign_in_button: "Přihlásit"
   group:
+    group_prefs_tab: "Nastavení skupiny"
     group_profile_tab: "Profil místní skupiny"
     group_management: "Správa místní skupiny"
     membership_list_tab: "Seznam členů"
@@ -241,6 +243,13 @@
         title: "Nové vlákno místní skupiny"
       update:
         success: "Vlákno upraveno"
+    prefs:
+      edit:
+        no_email_warning: "Varování! Nastavili jste, že chcete odesílat oznámení do vaší skupiny, ale není nastaven žádný skupinový email. Buďto si zvolte správce členství ve skupině, nebo požádejte aby byl váš skupinový email nastaven administrátorem stránky."
+        title: "Upravit nastavení"
+      update:
+        failure: "Nemohu upravit nastavení"
+        success: "Nastavení upravena"
     profiles:
       edit:
         title: "Upravit profil"
@@ -253,6 +262,7 @@
   groups:
     show:
       edit_group_profile: "Upravit profil místní skupiny"
+      edit_group_prefs: "Upravit nastavení místní skupiny"
       edit_group_members: "Upravit seznam členů místní skupiny"
       group_management: "Správa místní skupiny"
       group_organisers: "Správci místní skupiny"
@@ -473,6 +483,8 @@
     notifications:
       gmr_confirmed:
         subject: "Nyní jste členy místní skupiny Cyklisté sobě %{group_name}"
+      new_gmr:
+        subject: "[Cyklisté sobě] %{user_name} chce vstoupit do skupiny %{group_name}"
       new_group_thread:
         subject: "[Cyklisté sobě] \"%{thread_title}\" (%{group_name})"
       new_group_location_issue:
@@ -683,6 +695,9 @@
         edit_tags: "Upravit štítky"
   site:
     comments:
+      destroy:
+        failure: "Nepodařilo se smazat zpětnou vazbu"
+        success: "Zpětná vazba úspěšně smazána"
       index:
         confirm_delete: "Skutečně?"
         delete_comment: "Smazat"
@@ -701,9 +716,6 @@
         thank_you_title: "Děkujeme za vaší zpětnou vazbu!"
         thank_you_longform: "Vaše zpětná vazba nám pomůže rozhodnout se, na jakých vylepšeních budeme pracovat. Váš komentář si přečte některý z našich vývojářů, bohužel však nejsme schopní na každý z nich individuálně odpovídat."
         close: "< Návrat na stránku"
-      destroy:
-        failure: "Nepodařilo se smazat zpětnou vazbu"
-        success: "Zpětná vazba úspěšně smazána"
   tags:
     show:
       issues: "Podněty"
