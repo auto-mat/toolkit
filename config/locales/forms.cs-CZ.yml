@@ -63,6 +63,7 @@
         tags_string: "Štítky"
         title: "Titulek"
         privacy: "Viditelnost"
+        issue: "Podnět"
       site_comment:
         body: "Zpráva"
         name: "Jméno"
