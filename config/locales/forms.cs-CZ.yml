@@ -113,6 +113,9 @@
       group_membership:
         role: "Vyberte, jestli jde o normální členy nebo správce místní skupiny."
         full_name: "Prosím zadejte jejich jméno, až přijmou pozvánku, tak si ho budou si ho moci změnit."
+      group_pref:
+        notify_membership_requests: "Upozornění bude zasláno pokaždé, když se nějaký uživatel připojí k této místní skupině"
+        membership_secretary: "Vyberte případně správce členství ve skupině, který obdrží upozornění o nových členech emailem. Pokud zanecháte pole prázdné, tak budou upozornění docházet na email místní skupiny."
       group_profile:
         joining_instructions: "Instrukce, které jsou ukázány lidem, kteří se chtějí zapojit do této místní skupiny Cyklisté sobě. Můžete nechat toto pole prázdné."
       issue:
