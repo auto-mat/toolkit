@@ -11,6 +11,17 @@
             full_name:
               blank: "Prosím zadejte jméno"
               email: "Prosím zadejte emailovou adresu"
+    models:
+      user: "Uživatel"
+
+    attributes:
+      user_location:
+        location: "Oblast"
+      user:
+        password: "Heslo"
+        full_name: "Plné jméno"
+        email: "Email"
+        password_confirmation: "Ověření hesla"
 
   formtastic:
     labels:
@@ -74,16 +85,14 @@
         involve_my_locations: "Záležitosti v mém okolí"
         involve_my_groups: "Záležitosti mých místních skupin"
         involve_my_groups_admin: "Taktéž mě zahrňte do všeobecných diskuzí mých místních skupin"
+      user_location:
+        category: "Typ oblasti"
       user:
-        new:
-          email: "Email"
-          password: "Heslo"
+        new: &labels_user_new
           remember_me: "Zapamatovat si mě"
-          full_name: "Plné jméno"
           display_name: "Zobrazované jméno"
-          password_confirmation: "Ověření hesla"
+        create: *labels_user_new
         edit:
-          full_name: "Plné jméno"
           display_name: "Zobrazené jméno"
           disabled: "Neaktivní"
           password: "Nové heslo"
