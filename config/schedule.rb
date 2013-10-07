@@ -21,5 +21,5 @@
 
 every 5.minutes do
   runner "MailboxReader.process_all_mailboxes"
-  env :MAILTO, 'cyclescape-errors@cyclestreets.net'
+  env :MAILTO, 'cyclescape-errors@cyklistesobe.cz'
 end
