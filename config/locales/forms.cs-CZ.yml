@@ -41,7 +41,7 @@
           location: "Zvolte oblast"
           photo: "Přidejte fotografii"
           tags_string: "Přidejte štítek k vašemu podnětu"
-          title: "Zvolte nadpis vašeho hlášení"
+          title: "Zvolte nadpis vašeho podnětu"
         create: *labels_issue_new
         edit: *labels_issue_new
         update: *labels_issue_new
@@ -143,8 +143,8 @@
       group_membership:
         create: "Pozvat člena"
       issue:
-        create: "Odeslat hlášení"
-        update: "Uložit hlášení"
+        create: "Odeslat podnět"
+        update: "Uložit podnět"
         update_tags: "Upravit štítky"
       library_item:
         update_tags: "Upravit štítky"

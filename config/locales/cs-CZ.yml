@@ -287,7 +287,7 @@
         Cyklisté sobě je nástroj na podporu místních skupin
         snažících se o zlepšení podmínek pro jízdu na kole ve svém okolí.
       center_box_title:
-        Zde můžete nahlásit váš cyklistický podnět
+        Zde můžete navrhnout, jak zlepšit podmínky pro jízdu na kole
       center_box_html:
         Neexistující cyklostezka? Překážka bránící v provozu? Chybějící cyklostojan?
         Nebo příklad, kde bylo něco uděláno správně? 
@@ -300,11 +300,11 @@
         a zjistěte jaké problémy se snaží řešit.
       twitter_title: "Cyclescape na Twitteru"
     guide:
-      title: "Jak fungují Cyklisté sobě"
-      box_1_title: "Přidejte cyklistický podnět"
+      title: "Jak funguje tento web"
+      box_1_title: "Přidejte  podnět"
       box_1_body: "Rychle upozorněte na problém, který vás trápí."
       box_2_title: "Získejte rady od ostatních"
-      box_2_body: "Prodiskutujte podnět se členy místní skupiny Cyklisté sobě."
+      box_2_body: "Prodiskutujte podnět s lidmi, které zajímá stejná čtvrť nebo oblast."
       box_3_title: "Prosaďte změnu"
       box_3_body: "Vytvořte akční skupinu a prosaďte změnu."
   issue:
@@ -415,7 +415,7 @@
       application_version_html: "Verze aplikace: %{version}"
       github_page_link_html: "Zdrojové kódy jsou dostupné na <a href='https://github.com/cyclestreets/toolkit/'>GitHubu</a>"
       whats_new: "Co je nového?"
-      supportlogos_introduction: "Vznik Cyclescape byl umožněn podporou:"
+      supportlogos_introduction: "Web Cyklisté sobě vznikl lokalizací aplikace Cyclescape. Vznik byl umožněn podporou:"
       funding_from: "Za podpory %{name}"
       funding_from_and_created_by: "Funding from and created by %{name}"
       planning_application_data: "Planning application data from Openly Local"
