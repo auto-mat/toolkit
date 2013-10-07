@@ -59,11 +59,11 @@ module Cyclescape
     config.cache_store = :redis_store
 
     # ActionMailer default URL options
-    config.action_mailer.default_url_options = {host: "www.cyclescape.org"}
+    config.action_mailer.default_url_options = {host: "www.cyklistesobe.cz"}
 
     # Default notification e-mail from address
-    config.default_email_from_domain = "cyclescape.org"
-    config.default_email_from = "Cyclescape <info@cyclescape.org>"
+    config.default_email_from_domain = "cyklistesobe.cz"
+    config.default_email_from = "Cykliste sobe <info@cyklistesobe.cz>"
 
     # Git info
     config.git_hash = `git rev-parse --short HEAD`.chomp
