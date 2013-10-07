@@ -101,7 +101,7 @@
         Nejnovější diskuzní vlákna na kterých pracovala některá z vašich místních skupin.
       my_priorities: "Důležitost"
       my_threads: "Odebíraná vlákna"
-      issues_nearby: "Nejnovější podněty poblíž"
+      issues_nearby: "Podněty v blízkosti"
       posted:
         message_html: "%{creator_link} zaslal zprávu"
         deadline_message_html: "%{creator_link} zaslal termín/datum"
@@ -233,7 +233,7 @@
         threads_explanation_html: "Každý z %{issues_link} může mít jedno nebo více diskuzních vláken."
         issues: "podnětů"
         new_group_thread: "Diskuze místní skupiny o obecných tématech"
-        issue_threads: "Diskuze o podnětu"
+        issue_threads: "Diskuze o podnětech"
         issue_threads_description: "Toto jsou soukromé i veřejné diskuze místní skupiny %{group_name} o jejích podnětech, nejnovější jsou řazené dopředu."
         issue_threads_addition_description: "Pro založení diskuzního vlákna o podnětu přejděte na příslušný podnět."
         general_threads: "Diskuze o obecných tématech"
@@ -255,8 +255,8 @@
         title: "Upravit profil"
       show:
         description: "Popis"
-        location: "Oblasti působnosti"
-        no_location: "Tato místní skupina ještě nemá žádné pdorobnosti o oblasti působnosti."
+        location: "Oblasti zájmu"
+        no_location: "Tato místní skupina ještě nemá žádné pdorobnosti o oblasti zájmu."
       update:
         success: "Profil upraven"
   groups:
@@ -396,12 +396,12 @@
     application:
       admin: "Administrace"
       admin_tooltip: "Administrace, určeno pro systémové administrátory"
-      dashboard: "Moje podněty"
+      dashboard: "Moje stránka"
       dashboard_tooltip: "Vaše přístrojová deska, ukazuje aktualizace diskuzních vláken do kterých jste zapsáni."
       sign_out: "Odhlásit"
       sign_in: "Přihlásit"
       sign_up: "Registrovat"
-      feedback: "Zpětná vazba"
+      feedback: "Napište nám"
       home: "Domů"
       issues: "Podněty"
       issues_tooltip: "Podané podněty zobrazené na mapě nebo jako seznam"
@@ -687,9 +687,9 @@
       submit: "Přejít"
     profile_menu:
       edit: "Upravit profil"
-      edit_preferences: "Spravovat nastavení"
+      edit_preferences: "Správa notifikací"
       my_locations: "Oblasti působnosti"
-      update_account: "Upravit podrobnosti uživatelského účtu"
+      update_account: "Základní nastavení účtu"
     tags:
       panel:
         edit_tags: "Upravit štítky"
@@ -769,7 +769,7 @@
         title: "Upravit umístění"
       index:
         add_first_location: "přidat první umístění"
-        all_my_locations: "Všechny má umístění"
+        all_my_locations: "Všechna má umístění"
         catch_up_guidance_html: "Pro zachycení existujících diskuzí, můžete %{subscribe_existing_link} v těchto oblastech."
         category: "Kategorie"
         combined_locations: "Kombinovaná umístění"
@@ -806,7 +806,7 @@
         involvement: "Zahrnout mě do:"
         notification_types: "Typ upozornění"
         notification_types_guidance: "Můžete vybrat jak budete informováni o jednotlivých záležitostech nahoře. V současné době jsou dostupná pouze emailová oznámení."
-        title: "Spravovat má nastavení"
+        title: "Správa notifikací"
         back: "Návrat na váš profil"
         none: "Žádná upozornění"
         notify: "Zasílat upozornění o nových podnětech a nově založených diskuzních vláknech"
