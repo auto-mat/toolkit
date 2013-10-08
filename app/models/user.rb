@@ -33,7 +33,8 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :full_name, :display_name, :password, :password_confirmation, :disabled, :role, :profile_attributes
+  attr_accessible :email, :full_name, :display_name, :password, :password_confirmation, :disabled
+  attr_protected :role, :profile_attributes, :as => :admin
 
   acts_as_voter
   acts_as_paranoid
