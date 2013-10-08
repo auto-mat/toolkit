@@ -22,6 +22,9 @@
         full_name: "Plné jméno"
         email: "Email"
         password_confirmation: "Ověření hesla"
+      group_pref:
+        membership_secretary: "Správce členství ve skupině"
+        notify_membership_requests: "Upozornit na nové žádosti o členství"
 
   formtastic:
     labels:
@@ -115,7 +118,7 @@
         full_name: "Prosím zadejte jejich jméno, až přijmou pozvánku, tak si ho budou si ho moci změnit."
       group_pref:
         notify_membership_requests: "Upozornění bude zasláno pokaždé, když se nějaký uživatel připojí k této místní skupině"
-        membership_secretary: "Vyberte případně správce členství ve skupině, který obdrží upozornění o nových členech emailem. Pokud zanecháte pole prázdné, tak budou upozornění docházet na email místní skupiny."
+        membership_secretary: "Volitelně vyberte správce členství ve skupině, který bude emailem dostávat upozornění na nové žádosti o členství. Pokud zanecháte pole prázdné, tak budou upozornění přicházet na email místní skupiny."
       group_profile:
         joining_instructions: "Instrukce, které jsou ukázány lidem, kteří se chtějí zapojit do této místní skupiny Cyklisté sobě. Můžete nechat toto pole prázdné."
       issue:
