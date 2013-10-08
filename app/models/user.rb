@@ -27,7 +27,7 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :full_name, :display_name, :password, :password_confirmation, :disabled
+  attr_accessible :email, :full_name, :display_name, :password, :password_confirmation, :disabled, :role, :profile_attributes
 
   acts_as_voter
 
