@@ -413,7 +413,7 @@
       title: "Cyklisté sobě"
     footer:
       application_version_html: "Verze aplikace: %{version}"
-      github_page_link_html: "Zdrojové kódy jsou dostupné na <a href='https://github.com/cyclestreets/toolkit/'>GitHubu</a>"
+      github_page_link_html: "Zdrojové kódy jsou dostupné na <a href='https://github.com/auto-mat/toolkit/tree/deploy'>GitHubu</a>"
       whats_new: "Co je nového?"
       supportlogos_introduction: "Web Cyklisté sobě vznikl lokalizací aplikace Cyclescape. Vznik byl umožněn podporou:"
       funding_from: "Za podpory %{name}"
@@ -660,7 +660,7 @@
       text_message: "Text"
   pages:
     changelog:
-      github_history_link_html: "<a href='https://github.com/cyclestreets/toolkit/commits/master/'>GitHub</a>."
+      github_history_link_html: "<a href='https://github.com/auto-mat/toolkit/commits/deploy'>GitHub</a>."
   shared:
     edit_map:
       area: "oblast"

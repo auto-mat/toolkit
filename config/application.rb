@@ -67,7 +67,7 @@ module Cyclescape
 
     # Git info
     config.git_hash = `git rev-parse --short HEAD`.chomp
-    config.github_project_url = "https://github.com/auto-mat/toolkit.git"
+    config.github_project_url = "https://github.com/auto-mat/toolkit"
 
     # Google analytics
     config.analytics = {google: {account_id: "UA-22281359-9", base_domain: "cyklistesobe.cz"}}
