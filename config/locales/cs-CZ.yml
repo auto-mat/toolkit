@@ -728,7 +728,7 @@
       unrecognised: "Nemohu najít žádnou položku označenou štítkem '%{name}'"
   thread_mailer:
     new_deadline_message:
-      added: "%{name} přidal deadline/datum k tomuto diskuznímu vláknu"
+      added: "%{name} přidal termín/datum k tomuto diskuznímu vláknu"
     new_document_message:
       added: "%{name} přidal přílohu k tomuto diskuznímu vláknu"
       view_the_document: "Přílohu můžete vidět na následující adrese:"
@@ -1029,7 +1029,7 @@
     messages: &errors_messages
       inclusion: "není v seznamu povolených hodnot"
       exclusion: "je vyhrazeno pro jiný účel"
-      invalid: "není dobře vyplněn"
+      invalid: "není správně vyplněn"
       confirmation: "neodpovídá ověření hesla"
       accepted: "musí být potvrzeno"
       empty: "nesmí být prázdný/é"
