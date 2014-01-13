@@ -40,6 +40,32 @@
         title: "Kategorie podnětů"
       update:
         success: "Kategorie vytvořena"
+    user:
+      locations:
+        create:
+          success: "Oblast působnosti vytvořena"
+        edit:
+          title: "Upravit oblast působnosti uživatele %{user_name}"
+        index:
+          all_user_locations: "Všechny oblasti působnosti pro %{user_name}"
+          category: "Kategorie"
+          combined_locations: "Kombinovaná umístění"
+          combined_locations_guidance: "Toto jsou zkombinované oblasti působnosti pro tohoto uživatele."
+          combined_locations_guidance: "Tato mapa ukazuje všechna umístění vybraného uživatele zkombinovaná dohromady."
+          confirm: "Skutečně?"
+          delete: "Smazat"
+          edit: "Upravit"
+          map: "Mapa"
+          new: "Nová oblast"
+          no_locations_yet: "Tento uživatel nemá zatím žádné oblasti působnosti."
+          no_locations_guidance: "Jako administrátor můžete přidat jeho první oblast."
+          no_overlapping_groups: "Žádné spádové místní skupiny"
+          title: "Oblasti uživatele %{user_name}"
+          overlapping_groups: "Spádové místní skupiny"
+        new:
+          title: "Nová oblast pro %{user_name}"
+        update:
+          success: "Oblast upravena"
     users:
       index:
         created: "Vytvořeno"
@@ -55,6 +81,7 @@
         role: "Role"
         title: "Uživatelé"
         preferences: "Nastavení"
+        locations: "Oblasti působnosti"
       update:
         success: "Uživatel upraven"
       edit:
@@ -201,7 +228,7 @@
         requested: "Žádost o členství byla vytvořena"
         already_asked: "Již jste žádal o členství v místní skupině"
         already_member: "Už jste členem této místní skupiny"
-      index:
+      index: &group_membership_requests_index
         actioned_by: "Uskutečnil"
         are_you_sure: "Skutečně?"
         by: "%{name}"
@@ -209,11 +236,12 @@
         created_at: "před %{time_ago}"
         email: "E-mailová adresa"
         no_requests_yet: "Pro tuto místní skupinu zatím neexistují žádné žádosti o členství."
+        full_name: "Plné jméno"
         reject: "Zamítnout"
         requested_at: "Žádáno"
         status: "Stav"
         title: "Žádost o členství v místní skupině %{group}"
-        user: "Uživatel"
+        user: "Uživatel (zobrazené jméno)"
         membership_status:
           confirmed: "Potvrzeno"
           pending: "Čeká"
@@ -224,6 +252,9 @@
       reject:
         failure: "Při zamítání žádosti o členství v místni skupině se vyskytl problém"
         success: "Členství v místní skupině zamítnuto"
+      review:
+        <<: *group_membership_requests_index
+        title: "Posoudit žádost o členství ve skupině %{group}"
     message_threads:
       destroy:
         failure: "Nemohu smazat vlákno"
@@ -260,13 +291,28 @@
       update:
         success: "Profil upraven"
   groups:
+    index:
+      list_tab: "Seznam"
+      map_tab: "Mapa"
+      new_group: "Vytvořit novou skupinu"
+      new_group_instructions_html: "Pro vytvoření vaší místní cyklistické skupiny na webu Cyklisté sobě prosím %{feedback_link} a my vám brzy odpovíme."
+      send_some_feedback: "pošlete zpětnou vazbu"
+      title: "Adresář skupiny"
+    compact:
+      already_member: "Již jste členem této skupiny"
+      no_location: "Tato skupina ještě nemá určenou oblast působnosti."
+    join:
+      join_body:
+        Pokud se chcete zapojit do aktivit %{group}, můžete požádat o členství v této místní skupině Cyklisté sobě.
+      join_this_group: "Připojit se k této skupině"
+      group_request_pending: "Vaše žádost o připojení k této místní skupině se zpracovává."
     show:
       edit_group_profile: "Upravit profil místní skupiny"
       edit_group_prefs: "Upravit nastavení místní skupiny"
       edit_group_members: "Upravit seznam členů místní skupiny"
       group_management: "Správa místní skupiny"
       group_organisers: "Správci místní skupiny"
-      group_request_pending: "Vaše žádost o členství této místní skupiny se vyřizuje."
+      group_request_pending: "Vaše žádost o připojení k této místní skupině se zpracovává."
       join_body:
         Můžete požádat o členství v místní skupině Cyklisté sobě, pokud se chcete podílet na aktivitách skupiny %{group}.
       join_title: "Přidejte se k naší místní skupině Cyklisté sobě"
@@ -398,6 +444,8 @@
       admin_tooltip: "Administrace, určeno pro systémové administrátory"
       dashboard: "Moje stránka"
       dashboard_tooltip: "Vaše přístrojová deska, ukazuje aktualizace diskuzních vláken do kterých jste zapsáni."
+      about: "O stránkách"
+      user_guide: "Uživatelský manuál"
       sign_out: "Odhlásit"
       sign_in: "Přihlásit"
       sign_up: "Registrovat"
@@ -789,8 +837,8 @@
         no_locations_yet: "Zatím jste nenastavili žádné oblasti!"
         no_locations_guidance: "Můžete vytvořit oblasti pro místo kde žijete, vaši cestu do práce, kde rádi jezdíte atd. To pomůže zjistit, které záležitosti by se vás mohli týkat a které skupiny by vás mohli zajímat."
         no_locations_guidance2_html: "Pro začátek můžete %{first_location_link}."
-        no_overlapping_groups: "Žádné překrývající se oblasti"
-        overlapping_groups: "Překrývající se oblasti"
+        no_overlapping_groups: "Žádné spádové místní skupiny"
+        overlapping_groups: "Spádové místní skupiny"
         subscribe_existing_threads: "následovat všechna existující vlákna"
       new:
         new_location: "Přidejte novou oblast"
