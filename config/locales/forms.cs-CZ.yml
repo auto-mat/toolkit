@@ -115,7 +115,7 @@
     hints:
       user:
         new: &hints_user_new
-        display_name: "Volitelné - může být přezdívka nebo pseudonym, který bude zobrazen ostatním uživatelům místo plného jména."
+          display_name: "Volitelné - může být přezdívka nebo pseudonym, který bude zobrazen ostatním uživatelům místo plného jména."
           full_name: "Prosím poskytněte své plné jméno. Pokud požádáte o členství v místní skupině, bude toto jméno vždy zobrazeno administrátorovi skupiny."
         edit:
           password: "Nechte toto políčko prázdné, pokud chcete zachovat stávající heslo."
