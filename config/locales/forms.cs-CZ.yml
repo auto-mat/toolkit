@@ -6,6 +6,10 @@
   activerecord:
     errors:
       models:
+        issue:
+          attributes:
+            size:
+              less_than: "podnět je příliš velký."
         user:
           attributes:
             full_name:
@@ -40,6 +44,8 @@
         joining_instructions: "Instrukce pro nové členy"
       group_membership:
         role: "Typ členství"
+      group_pref:
+        notify_membership_requests: "Zapnout upozornění na žádosti o členství"
       issue:
         new: &labels_issue_new
           description: "Napište popis"
@@ -108,9 +114,13 @@
         about: "O uživateli"
     hints:
       user:
+        new: &hints_user_new
+        display_name: "Volitelné - může být přezdívka nebo pseudonym, který bude zobrazen ostatním uživatelům místo plného jména."
+          full_name: "Prosím poskytněte své plné jméno. Pokud požádáte o členství v místní skupině, bude toto jméno vždy zobrazeno administrátorovi skupiny."
         edit:
           password: "Nechte toto políčko prázdné, pokud chcete zachovat stávající heslo."
           current_password: "Prosím potvrďte vaše stávající heslo, abyste mohli udělat změny na této stránce."
+          <<: *hints_user_new
       group:
         short_name: "Musí být malé alfanumerické znaky; a-z, 0-9"
       group_membership:
