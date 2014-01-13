@@ -19,9 +19,11 @@
         location: "Oblast"
       user:
         password: "Heslo"
+        current_password: "Současné heslo"
         full_name: "Plné jméno"
         email: "Email"
         password_confirmation: "Ověření hesla"
+        display_name: "Zobrazené jméno"
       group_pref:
         membership_secretary: "Správce členství ve skupině"
         notify_membership_requests: "Upozornit na nové žádosti o členství"
@@ -93,14 +95,12 @@
       user:
         new: &labels_user_new
           remember_me: "Zapamatovat si mě"
-          display_name: "Zobrazované jméno"
         create: *labels_user_new
-        edit:
-          display_name: "Zobrazené jméno"
+        edit: &labels_user_edit
           disabled: "Neaktivní"
           password: "Nové heslo"
           password_confirmation: "Potvrzení nového hesla"
-          current_password: "Současné heslo"
+        update: *labels_user_edit
       user_profile:
         picture: "Obrázek"
         remove_picture: "Odstranit obrázek"

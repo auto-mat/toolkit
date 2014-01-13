@@ -413,7 +413,7 @@
       title: "Cyklisté sobě"
     footer:
       application_version_html: "Verze aplikace: %{version}"
-      github_page_link_html: "Zdrojové kódy jsou dostupné na <a href='https://github.com/cyclestreets/toolkit/'>GitHubu</a>"
+      github_page_link_html: "Zdrojové kódy jsou dostupné na <a href='https://github.com/auto-mat/toolkit/tree/deploy'>GitHubu</a>"
       whats_new: "Co je nového?"
       supportlogos_introduction: "Web Cyklisté sobě vznikl lokalizací aplikace Cyclescape. Vznik byl umožněn podporou:"
       funding_from: "Za podpory %{name}"
@@ -421,6 +421,8 @@
       planning_application_data: "Planning application data from Openly Local"
       cyclescape_blog: "Blog Cyclescape"
       user_guide: "Uživatelská příručka"
+      facebook_page: "Stránka na Facebooku"
+      twitter_page: "Stránka na Twitteru"
     group_selector:
       group_selector: "Skupina"
       no_group: "Bez skupiny"
@@ -658,7 +660,7 @@
       text_message: "Text"
   pages:
     changelog:
-      github_history_link_html: "<a href='https://github.com/cyclestreets/toolkit/commits/master/'>GitHub</a>."
+      github_history_link_html: "<a href='https://github.com/auto-mat/toolkit/commits/deploy'>GitHub</a>."
   shared:
     edit_map:
       area: "oblast"
@@ -726,7 +728,7 @@
       unrecognised: "Nemohu najít žádnou položku označenou štítkem '%{name}'"
   thread_mailer:
     new_deadline_message:
-      added: "%{name} přidal deadline/datum k tomuto diskuznímu vláknu"
+      added: "%{name} přidal termín/datum k tomuto diskuznímu vláknu"
     new_document_message:
       added: "%{name} přidal přílohu k tomuto diskuznímu vláknu"
       view_the_document: "Přílohu můžete vidět na následující adrese:"
@@ -1027,7 +1029,7 @@
     messages: &errors_messages
       inclusion: "není v seznamu povolených hodnot"
       exclusion: "je vyhrazeno pro jiný účel"
-      invalid: "není dobře vyplněn"
+      invalid: "není správně vyplněn"
       confirmation: "neodpovídá ověření hesla"
       accepted: "musí být potvrzeno"
       empty: "nesmí být prázdný/é"
