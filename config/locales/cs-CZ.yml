@@ -1,4 +1,4 @@
-# GB English translations for Ruby on Rails
+# Czech translations for Ruby on Rails
 
 "cs-CZ":
   application_name: "Cyklisté sobě"
@@ -255,8 +255,8 @@
         title: "Upravit profil"
       show:
         description: "Popis"
-        location: "Oblasti zájmu"
-        no_location: "Tato místní skupina ještě nemá žádné pdorobnosti o oblasti zájmu."
+        location: "Oblasti působnosti"
+        no_location: "Tato místní skupina ještě nemá žádné pdorobnosti o oblasti působnosti."
       update:
         success: "Profil upraven"
   groups:
