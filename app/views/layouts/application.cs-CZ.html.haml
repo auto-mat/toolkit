@@ -1,0 +1,79 @@
+!!!
+%html
+  %head
+    %title= page_title
+    = favicon_link_tag 'favicon.ico', type: "image/x-icon"
+    = stylesheet_link_tag    "application"
+    /[if lt IE 9]
+      %script(src="//html5shiv.googlecode.com/svn/trunk/html5.js")
+    /[if lt IE 8]
+      = stylesheet_link_tag "ie7"
+    %script(src="/openlayers/OpenLayers.js" type="text/javascript")
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body{class: [Rails.env, controller_path.tr("/_", "-")].join(" ")}
+    %header#site-header(role="banner")
+      .wrapper
+        - if current_group
+          = link_to root_path, id: "site-title" do
+            %h1= current_group.name
+        - else
+          = link_to image_tag("header_logo.png", alt: t(".title")), root_path, id: "site-title"
+        %ul#top-menu
+          %li.about= link_to t(".title"), root_url(subdomain: "www"), class: "cyclescape-logo"
+          %li=link_to t(".about"), "http://prahounakole.cz/cykliste-sobe/"
+          %li=link_to t(".user_guide"), "http://prahounakole.cz/cykliste-sobe/manual-pro-web-cykliste-sobe/"
+          %li#feedback= link_to t(".feedback"), new_site_comment_path, title: t(".feedback"), rel: "#overlay"
+          - if current_user
+            %li.name= link_to_profile current_user
+            %li.sign-out= link_to t(".sign_out"), destroy_user_session_path, method: "delete"
+          - else
+            - if permitted_to? :create, :devise_registrations
+              %li= link_to t(".sign_up"), new_user_registration_path
+            - if permitted_to? :create, :devise_sessions
+              %li= link_to t(".sign_in"), new_user_session_path
+    #main-nav
+      %nav.wrapper
+        %ul#navigation(role="navigation")
+          %li#menu-dashboard= link_to t(".dashboard"), dashboard_path, title: t(".dashboard_tooltip")
+          %li#menu-issues= link_to t(".issues"), issues_path, title: t(".issues_tooltip")
+          %li#menu-threads= link_to t(".threads"), threads_path, title: t(".threads_tooltip")
+          %li#menu-library= link_to t(".library"), library_path, title: t(".library_tooltip")
+          - if permitted_to? :view, :admin_home
+            %li#menu-admin= link_to t(".admin"), admin_home_path, title: t(".admin_tooltip")
+        - if current_user && !current_user.groups.empty?
+          = render partial: "layouts/group_selector"
+
+    - if content_for? :subnav
+      #crumb-search
+        .wrapper
+          = content_for :subnav
+    - else
+      #crumb-search
+        .wrapper
+          = render partial: "layouts/search"
+    .flash-container
+      - [:alert, :notice].each do |type|
+        - if flash.key? type
+          .flash{class: type}
+            = flash[type]
+    #page
+      .wrapper
+        = yield
+        #overlay
+          .loading
+            = image_tag "spinner.gif"
+            = t(".loading")
+          .inner
+  - if Rails.application.config.analytics[:google]
+    :javascript
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', '#{Rails.application.config.analytics[:google][:account_id]}']);
+      _gaq.push(['_setDomainName', '#{Rails.application.config.analytics[:google][:base_domain]}']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+  = render "layouts/footer"
