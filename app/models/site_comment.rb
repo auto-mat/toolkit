@@ -11,10 +11,12 @@
 #  context_data :text
 #  created_at   :datetime         not null
 #  viewed_at    :datetime
+#  deleted_at   :datetime
 #
 
 class SiteComment < ActiveRecord::Base
   attr_accessible :name, :email, :body, :context_url, :context_data
+  acts_as_paranoid
 
   belongs_to :user
 
@@ -41,11 +43,10 @@ class SiteComment < ActiveRecord::Base
       self.email = user.email
     end
   end
-  
+
   def body_does_not_contain_spam
-    unless self.body !~ /(<a ([^>]+)>|<\/a>|\[url\]|\[url=|\[\/url\])/i
-      errors.add(:body, "The message cannot contain HTML.")
+    unless body !~ /(<a ([^>]+)>|<\/a>|\[url\]|\[url=|\[\/url\])/i
+      errors.add(:body, 'The message cannot contain HTML.')
     end
   end
-  
 end

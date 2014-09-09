@@ -99,7 +99,7 @@
         one: "Tomorrow!"
         other: "%{count} days away"
       deadlines: "Deadlines and dates"
-      deadline_thread_updated: "thread updated %{at}"
+      deadline_thread_updated: "thread updated %{time_ago} ago"
       involved_threads: "Involved Threads"
       issues_in_your_area: "Issues in your area"
       new_group_thread: "Start a new group thread"
@@ -124,6 +124,7 @@
       no_user_groups: "You aren't a member of any groups yet! When you join some groups, the latest threads will show up here."
       recent_threads: "recent threads"
       subscribed_threads: "Subscribed Threads"
+      thread_latest_activity: "%{time_ago} ago"
       group_threads: "Group Threads"
       group_threads_desc_html:
         Recent threads with activity from your groups.
@@ -178,18 +179,19 @@
     members:
       index:
         actions: "Actions"
+        add_directly: "you can add them directly"
         committee: "Committee members"
         committee_guidance: "Committee members can manage the group membership list, change the group's profile and update group thread information."
         email: "E-mail address"
-        group_members_guidance: "On this page you can view the existing members of your group, invite new people and remove members from the group."
-        invite_directly: "you can invite them directly"
+        group_joining_date: "Group joining date"
+        group_members_guidance: "On this page you can view the existing members of your group, add new people and remove members from the group."
         member_name: "Member name"
         ordinary_members: "Ordinary members"
         new_members_guidance_introduction: "To add a member:"
-        new_members_guidance_method1_html: "If you know their email address, %{invite_directly_link}"
+        new_members_guidance_method1_html: "If you know their email address, %{add_directly_link}."
         new_members_guidance_method2_html: "If they are already using Cyclescape, click on their name from within a discussion thread, and you can add them from their user profile page."
         ordinary_members_guidance: "Ordinary members get access to your private group threads, and can create new group threads."
-        pending_requests: "Pending requests"
+        pending_requests: "Pending membership requests"
         review_membership_requests_html: "Users of the site can also apply to join this group. You can %{review_membership_requests_link}."
         review_pending: "pending membership requests"
         review_requests: "review the requests history"
@@ -199,9 +201,11 @@
         confirm: "Are you sure?"
         delete: "Remove from group"
         edit: "Edit membership"
+        joining_date: "%{time_ago} ago"
+        invite_pending: "Invite pending"
     memberships:
       new:
-        title: "Invite New Member"
+        title: "Add new member"
       destroy:
         failure: "Couldn't remove member from group"
         success: "Member removed from group"
@@ -227,6 +231,8 @@
         confirm: "Confirm"
         created_at: "%{time_ago} ago"
         email: "E-mail address"
+        view_message: "View..."
+        message: "Message"
         no_requests_yet: "There have been no membership requests for this group yet."
         full_name: "Full name"
         reject: "Reject"
@@ -247,6 +253,8 @@
       review:
         <<: *group_membership_requests_index
         title: "Review a membership request for %{group}"
+        message: "The user included this message with their request:"
+        no_message: "There was no message included with this membership request."
     message_threads:
       destroy:
         failure: "Couldn't delete thread"
@@ -388,6 +396,7 @@
     new:
       title: "Report an issue"
       new_issue_introduction: "Know of something stopping more people cycling, or that causes problems for existing cyclists? Or something that could do? Report it below."
+      new_issue_privacy_warning: "Please note that all issues are publicly viewable. If you wish, you can create a private discussion on this issue, after it has been reported."
       admin_thread_pointer_html: "You can %{administrative_matters_link} with no geographical context (e.g. organising a general meeting) in the group admin threads section."
       administrative_matters: "add a purely administrative matter"
     show:
@@ -520,6 +529,8 @@
         success: "Library Note Updated"
   mailers:
     notifications:
+      added_to_group:
+        subject: "You are now a member of the Cyclescape group for %{group_name}"
       gmr_confirmed:
         subject: "You are now a member of the Cyclescape group for %{group_name}"
       new_gmr:
@@ -686,7 +697,7 @@
       explain_library_item: "Explain how this library item relates to the discussion thread"
       view_document: "View Document"
       add_to_thread: "Add to thread"
-      search_issues: "Search issues"
+      search_library: "Search library"
       deadline_message: "Deadline/date"
       document_message: "Attachment"
       library_item_message: "Library"
@@ -779,7 +790,7 @@
       added: "%{name} added a photo to the thread."
       view_the_photo: "You can view the photo at the following url:"
     footer:
-      thread: "Cyclescape thread"
+      thread: "Cyclescape discussion thread"
       unsubscribe: "You can stop following this thread by visiting the link above."
   thread_priorities:
     very_high: "Top-priority"
@@ -809,7 +820,6 @@
       index:
         add_first_location: "add your first location"
         all_my_locations: "All my locations"
-        catch_up_guidance_html: "To catch up on existing discussions, you can %{subscribe_existing_link} in these areas."
         category: "Category"
         combined_locations: "Combined locations"
         combined_locations_guidance: "This map shows all of your locations combined together. We use this to help figure out which issues are relevant to you, and which groups you might be interested in."
@@ -828,7 +838,6 @@
         no_locations_guidance2_html: "To get started, you can %{first_location_link}."
         no_overlapping_groups: "No Overlapping Groups"
         overlapping_groups: "Overlapping Groups"
-        subscribe_existing_threads: "follow all existing threads"
       new:
         new_location: "Add a new location"
         introduction: "By setting a location, this helps us figure out which issues are relevant to you."
@@ -850,6 +859,11 @@
         none: "No notifications"
         notify: "Notify me of new issues and when new threads are started"
         subscribe: "Notify me of new issues and automatically follow all new threads"
+        profile: "Profile visibility"
+        profile_guidance_html: "You can choose to restrict who gets to view %{profile_link}."
+        your_profile: "your profile"
+        profile_public: "Everyone"
+        profile_group: "Only members in my groups"
       update:
         success: "Preferences saved"
         failure: "Your preferences could not be saved"

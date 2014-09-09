@@ -9,13 +9,17 @@
 #  created_at                 :datetime         not null
 #  updated_at                 :datetime         not null
 #
+# Indexes
+#
+#  index_group_prefs_on_group_id  (group_id) UNIQUE
+#
 
 require 'spec_helper'
 
 describe GroupPref do
   it { should belong_to(:group) }
 
-  describe "attributes" do
+  describe 'attributes' do
     booleans = %w(
       notify_membership_requests
       )

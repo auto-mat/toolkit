@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130926151245) do
+ActiveRecord::Schema.define(:version => 20140403150540) do
 
   create_table "deadline_messages", :force => true do |t|
     t.integer  "thread_id",         :null => false
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20130926151245) do
     t.integer  "actioned_by_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "message"
   end
 
   add_index "group_membership_requests", ["group_id"], :name => "index_group_membership_requests_on_group_id"
@@ -238,6 +239,7 @@ ActiveRecord::Schema.define(:version => 20130926151245) do
     t.text     "context_data"
     t.datetime "created_at",   :null => false
     t.datetime "viewed_at"
+    t.datetime "deleted_at"
   end
 
   create_table "tags", :force => true do |t|
@@ -285,6 +287,7 @@ ActiveRecord::Schema.define(:version => 20130926151245) do
     t.string  "involve_my_groups",       :default => "notify",    :null => false
     t.boolean "involve_my_groups_admin", :default => false,       :null => false
     t.boolean "enable_email",            :default => false,       :null => false
+    t.string  "profile_visibility",      :default => "public",    :null => false
   end
 
   add_index "user_prefs", ["enable_email"], :name => "index_user_prefs_on_enable_email"
@@ -335,6 +338,7 @@ ActiveRecord::Schema.define(:version => 20130926151245) do
     t.integer  "invitation_limit"
     t.integer  "invited_by_id"
     t.string   "invited_by_type"
+    t.datetime "deleted_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"
