@@ -194,7 +194,7 @@
         member_name: "Jméno člena"
         ordinary_members: "Obyčejní členové"
         new_members_guidance_introduction: "Pokud chcete přidat členy:"
-        new_members_guidance_method1_html: "Pokud znáte jejich emailové adresy můžete %{invite_directly_link}."
+        new_members_guidance_method1_html: "Pokud znáte jejich emailové adresy můžete %{add_directly_link}."
         new_members_guidance_method2_html: "Pokud již používají Cyklisté sobě, klikněte na jejich jméno v diskuzním vlákně a můžete je přidat z jejich profilové stránky."
         ordinary_members_guidance: "Obyčejní členové mají přístup do soukromých vláken skupiny a mohou vytvářet nová skupinová vlákna."
         pending_requests: "Nevyřízené žádosti"
