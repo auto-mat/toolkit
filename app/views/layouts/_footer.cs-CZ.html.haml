@@ -19,22 +19,12 @@
           %li
             %small= link_to t(".user_guide"), 'http://blog.cyclescape.org/guide/'
     %div{:id => 'supportlogos'}
-      %p= t(".supportlogos_introduction")
+      %p= t(".supportlogos_introduction_html")
       %ul
         %li
+          = link_to image_tag("supportlogos/loga-fondnno-nros-partnestvi-eeagrants-mala-rgb.png ", {title: t(".funding_from_and_created_by", :name => 'Nadací rozvoje občanské společnosti'), :alt => 'Logo'}), 'www.fondnno.cz', :target => "_blank"
+        %br
+        %li
           = link_to image_tag("supportlogos/cyclestreets.png", {title: t(".funding_from_and_created_by", :name => 'CycleStreets'), :alt => 'Logo'}), 'http://www.cyclestreets.net/', :target => "_blank"
-        //%li
-        //  = link_to image_tag("supportlogos/geovation.png", {title: t(".funding_from", :name => 'GeoVation'), :alt => 'Logo'}), 'http://www.geovation.org.uk/', :target => "_blank"
-        //%li
-        //  = link_to image_tag("supportlogos/lushcharitypot.png", {title: t(".funding_from", :name => 'Lush Charity Pot'), :alt => 'Logo'}), 'https://www.lush.co.uk/our-values/charity-support', :target => "_blank"
-        //- if group_subdomain?('camcycle')
-        //  %li
-        //    = link_to image_tag("supportlogos/cambridgesustainablecity.png", {title: t(".funding_from", :name => 'Cambridge Sustainable City'), :alt => 'Logo'}), 'http://www.cambridge.gov.uk/ccm/navigation/environment-and-recycling/sustainable-city/', :target => "_blank"
-        //%li
-        //  = link_to image_tag("supportlogos/ctc.png", {title: t(".funding_from", :name => 'CTC'), :alt => 'Logo'}), 'http://www.ctc.org.uk/', :target => "_blank"
-        //%li
-        //  = link_to image_tag("supportlogos/openlylocal.png", {title: t(".planning_application_data"), :alt => 'Logo'}), 'http://openlylocal.com/', :target => "_blank"
         %li
-          = link_to image_tag("supportlogos/nap_logo.png", {title: "web Cyklisté sobě podpořila Nadace Partnerství", :alt => 'Logo'}), 'http://www.nadacepartnerstvi.cz/', :target => "_blank"
-        %li
-          = link_to image_tag("supportlogos/logo_via.gif", {title: "web Cyklisté sobě podpořil Fond T-Mobile", :alt => 'Logo'}), 'http://www.nadacevia.cz/', :target => "_blank"
+          = link_to image_tag("supportlogos/logo_via.gif", {title: t(".funding_from_and_created_by", :name => 'Fondem T-Mobile'), :alt => 'Logo'}), 'http://www.nadacevia.cz/', :target => "_blank"
