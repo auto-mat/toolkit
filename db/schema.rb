@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140403150540) do
+ActiveRecord::Schema.define(:version => 20141129230955) do
 
   create_table "deadline_messages", :force => true do |t|
     t.integer  "thread_id",         :null => false

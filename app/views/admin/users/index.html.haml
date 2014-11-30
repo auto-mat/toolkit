@@ -8,7 +8,7 @@
     %th= t ".email"
     %th= t ".role"
     %th= t ".created"
-    %th= t ".updated"
+    %th= t ".last_seen"
     %th= t ".disabled"
     %th= t ".edit"
     %th= t ".preferences"
@@ -25,8 +25,9 @@
           = time_tag_with_title(user.created_at) do
             - t ".created_at", time_ago: time_ago_in_words(user.created_at)
         %td
-          = time_tag_with_title(user.updated_at) do
-            - t ".updated_at", time_ago: time_ago_in_words(user.updated_at)
+          - if user.last_seen_at?
+            = time_tag_with_title(user.last_seen_at) do
+              - t ".last_seen_at", time_ago: time_ago_in_words(user.last_seen_at)
         %td
           - if user.disabled_at?
             = time_tag_with_title(user.disabled_at) do

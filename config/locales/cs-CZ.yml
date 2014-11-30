@@ -70,8 +70,8 @@
       index:
         created: "Vytvořeno"
         created_at: "před %{time_ago}"
-        updated: "Naposledy přihlášen"
-        updated_at: "před %{time_ago}"
+        last_seen: "Naposledy přihlášen"
+        last_seen_at: "před %{time_ago}"
         introduction: "Tato stránka zobrazuje všechny uživatele v systému (nezávisle na tom v jaká mají oprávnění)."
         disabled: "Neaktivní"
         disabled_at: "před %{time_ago}"
