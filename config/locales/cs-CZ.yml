@@ -343,9 +343,9 @@
       latest_discussions: "Poslední diskuze"
       groups_title: "Místní skupiny Cyklisté sobě"
       groups_intro_html:
-        Portál Cyklisté sobě používají <strong>místní skupiny</strong> po
-        celé Praze (potenciálně i celém Česku). <strong>Najděte si místní skupinu</strong> ve vašem okolí
+        Portál Cyklisté sobě používají <strong>místní skupiny</strong> v celém Česku. <strong>%{groups_link}</strong> ve vašem okolí
         a zjistěte jaké problémy se snaží řešit.
+      find_local_groups: "Najděte si místní skupiny"
       twitter_title: "Cyclescape na Twitteru"
     guide:
       title: "Jak funguje tento web"
