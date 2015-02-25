@@ -699,7 +699,7 @@
       explain_library_item: "Vysvětlete jak se tato položka knihovny vztahuje k diskuznímu vláknu"
       view_document: "Zobrazit dokument"
       add_to_thread: "Přidat do diskuzního vlákna"
-      search_issues: "Prohledat knihovnu"
+      search_library: "Prohledat knihovnu"
       deadline_message: "Termín/datum"
       document_message: "Příloha"
       library_item_message: "Knihovna"
