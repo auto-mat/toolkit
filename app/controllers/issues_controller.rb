@@ -86,6 +86,42 @@ class IssuesController < ApplicationController
     end
   end
 
+  def list
+    if params[:bbox]
+      bbox = bbox_from_string(params[:bbox], Issue.rgeo_factory)
+      issues = Issue.intersects_not_covered(bbox.to_geometry)
+    else
+      bbox = nil
+      issues = Issue.includes(:created_by)
+    end
+
+    if params[:order]
+       if params[:order] == 'vote_count'
+         issues = issues.plusminus_tally()
+       end
+       if [ 'created_at', 'start_at' ].include? params[:order]
+         issues = issues.order(params[:order] + ' DESC')
+       end
+    end
+
+    if params[:group]
+      group = Group.where(short_name: params[:group]).first
+      issues = issues.intersects(group.profile.location)
+    end
+
+    if params[:count]
+       issues = issues.limit(params[:count])
+    else
+       issues = issues.limit(50)
+    end
+
+    factory = RGeo::GeoJSON::EntityFactory.new
+    collection = factory.feature_collection(issues.sort_by! { |o| o.size }.map { | issue | issue_feature_digest(IssueDecorator.decorate(issue), bbox) })
+    respond_to do |format|
+      format.json { render json: RGeo::GeoJSON.encode(collection) }
+    end
+  end
+
   def vote_up
     @issue = Issue.find(params[:id])
     if current_user.voted_for?(@issue)
@@ -133,6 +169,19 @@ class IssuesController < ApplicationController
                       image_url: issue.tip_icon_path(false),
                       title: issue.title,
                       size_ratio: issue.size_ratio(geom),
+                      url: view_context.url_for(issue),
+                      created_by: issue.created_by.name,
+                      created_by_url: view_context.url_for(issue.created_by))
+  end
+
+  def issue_feature_digest(issue, bbox = nil)
+    issue.loc_feature(thumbnail: issue.medium_icon_path,
+                      image_url: issue.tip_icon_path(false),
+                      photo_thumb_url: issue.standard_photo_url,
+                      #photo_thumb_url: "http://#{request.host+issue.standard_photo_url}",
+                      vote_count: issue.vote_count,
+                      description: issue.description,
+                      title: issue.title,
                       url: view_context.url_for(issue),
                       created_by: issue.created_by.name,
                       created_by_url: view_context.url_for(issue.created_by))

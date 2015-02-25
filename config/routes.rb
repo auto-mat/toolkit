@@ -10,6 +10,7 @@ Cyclescape::Application.routes.draw do
       end
       collection do
         get 'all_geometries'
+        get 'list'
       end
       scope module: 'issue' do
         resource :photo, only: [:show]
