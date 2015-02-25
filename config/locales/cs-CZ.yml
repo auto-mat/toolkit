@@ -533,8 +533,10 @@
         success: "Poznámka knihovny upravena"
   mailers:
     notifications:
+      added_to_group:
+        subject: "Nyní jste členem místní skupiny Cyklisté sobě %{group_name}"
       gmr_confirmed:
-        subject: "Nyní jste členy místní skupiny Cyklisté sobě %{group_name}"
+        subject: "Nyní jste členem místní skupiny Cyklisté sobě %{group_name}"
       new_gmr:
         subject: "[Cyklisté sobě] %{user_name} chce vstoupit do skupiny %{group_name}"
       new_group_thread:
