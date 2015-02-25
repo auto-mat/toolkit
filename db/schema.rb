@@ -339,6 +339,7 @@ ActiveRecord::Schema.define(:version => 20141129230955) do
     t.integer  "invited_by_id"
     t.string   "invited_by_type"
     t.datetime "deleted_at"
+    t.datetime "last_seen_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"
