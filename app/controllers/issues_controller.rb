@@ -3,7 +3,7 @@ class IssuesController < ApplicationController
 
   def index
     issues = Issue.by_most_recent.paginate(page: params[:page]).includes(:created_by)
-    popular_issues = Issue.plusminus_tally(start_at: 8.weeks.ago, at_least: 1).includes(:created_by)
+    popular_issues = Issue.plusminus_tally(start_at: 8.weeks.ago, at_least: 1).includes(:created_by).limit(30)
 
     @issues = IssueDecorator.decorate(issues)
     @popular_issues = IssueDecorator.decorate(popular_issues)
