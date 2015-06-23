@@ -5,6 +5,7 @@
   tags: "Štítky"
   anon: "Anonymní"
   sign_in: "přihlásit"  # Used for links
+  confirm: "Opravdu?"
   admin:
     groups:
       index:
@@ -32,6 +33,7 @@
         admin_interface_introduction: "Tento oddíl obsahuje funkce správy dostupné pouze správcům."
         manage_comments: "Spravovat zpětné vazby"
         manage_groups: "Spravovat skupiny"
+        manage_group_requests: "Spravovat žádosti o zřízení skupiny"
         manage_issue_categories: "Spravovat kategorie podnětů"
         manage_users: "Spravovat uživatele"
     issue_categories:
@@ -176,6 +178,13 @@
     membership_requests_tab: "Žádosti o členství"
     home_page_tab: "Domovská stránka"
     issues:
+      destroy:
+        failure: "Podnět není možné smazat"
+        success: "Podnět smazán"
+      index:
+        title: "Podněty v oblasti skupiny %{group_name}"
+      update:
+        success: "Podnět upraven"
       vote_clear:
         failure: "Váš hlas nemůže být zrušen"
         success: "Váš hlas byl zrušen"
@@ -190,9 +199,11 @@
     members:
       index:
         actions: "Akce"
+        add_directly: "můžete je přidat přímo"
         committee: "Správci místních skupin"
         committee_guidance: "Správci místních skupin mohou spravovat seznam členů, měnit profil skupiny a upravovat informace o diskuzních vláknech."
         email: "E-mailová adresa"
+        group_joining_date: "Datum připojení ke skupině"
         group_members_guidance: "Na této stránce můžete vidět členy vaší místní skupiny, pozvat nové lidí a odebrat členy ze skupiny."
         invite_directly: "pozvat členy do místní skupiny přímo"
         member_name: "Jméno člena"
@@ -211,6 +222,8 @@
         confirm: "Skutečně?"
         delete: "Odstranit z místní skupiny"
         edit: "Upravit členství"
+        joining_date: "před %{time_ago}"
+        invite_pending: "Pozvánka čeká na vyřízení"
     memberships:
       new:
         title: "Pozvat nového člena"
@@ -245,11 +258,14 @@
         requested_at: "Žádáno"
         status: "Stav"
         title: "Žádost o členství v místní skupině %{group}"
+        status: "Status"
+        title: "Žádosti o členství ve skupině %{group}"
         user: "Uživatel (zobrazené jméno)"
         membership_status:
           confirmed: "Potvrzeno"
           pending: "Čeká"
           unconfirmed: "Nepotvrzeno"
+          rejected: Zamítnuto
       new:
         title: "Žádost o členství uživatele %{group_name}"
         your_membership_request_will: "Vaše žádost o členství bude předána správcům skupiny, kteří vaše členství posoudí."
@@ -259,6 +275,8 @@
       review:
         <<: *group_membership_requests_index
         title: "Posoudit žádost o členství ve skupině %{group}"
+        message: "Uživatel připojil k žádosti tenté popis:"
+        no_message: "Uživatel nepřipojil k žádosti žádný popis"
     message_threads:
       destroy:
         failure: "Nemohu smazat vlákno"
@@ -292,6 +310,8 @@
         description: "Popis"
         location: "Oblasti působnosti"
         no_location: "Tato místní skupina ještě nemá žádné pdorobnosti o oblasti působnosti."
+        no_picture: "Přidejte uvítací obrázek vaší skupiny"
+        picture: "Obrázek"
       update:
         success: "Profil upraven"
   groups:
@@ -302,6 +322,7 @@
       new_group_instructions_html: "Pro vytvoření vaší místní cyklistické skupiny na webu Cyklisté sobě prosím %{feedback_link} a my vám brzy odpovíme."
       send_some_feedback: "pošlete zpětnou vazbu"
       title: "Adresář skupiny"
+      group_request: Žádost o novou skupinu
     compact:
       already_member: "Již jste členem této skupiny"
       no_location: "Tato skupina ještě nemá určenou oblast působnosti."
@@ -477,6 +498,8 @@
       user_guide: "Uživatelská příručka"
       facebook_page: "Stránka na Facebooku"
       twitter_page: "Stránka na Twitteru"
+      osm_credit_html: "Mapová data &copy; přispěvatelé <a href='http://www.openstreetmap.org'>
+        OpenStreetMap</a>, dostupné pod <a href='http://www.opendatacommons.org/licenses/odbl'>Open Database Licence</a>."
     group_selector:
       group_selector: "Skupina"
       no_group: "Bez skupiny"
@@ -541,6 +564,8 @@
         subject: "Nyní jste členem místní skupiny Cyklisté sobě %{group_name}"
       gmr_confirmed:
         subject: "Nyní jste členem místní skupiny Cyklisté sobě %{group_name}"
+      new_group_request:
+        subject: "[Cyclescape] %{user_name} chce založit %{group_name}"
       new_gmr:
         subject: "[Cyklisté sobě] %{user_name} chce vstoupit do skupiny %{group_name}"
       new_group_thread:
@@ -551,6 +576,12 @@
         subject: "[Cyklisté sobě] Nový podnět - \"%{issue_title}\""
       new_user_location_issue_thread:
         subject: "[Cyklisté sobě] Nové diskuzní vlákno založeno pro \"%{issue_title}\""
+      group_request_confirmed:
+        subject: "[Cyclescape] Nová skupina \"%{group_name}}\" byla založena"
+      group_request_rejected:
+        subject: "[Cyclescape] Nová skupina \"%{group_request_name}}\" nebyla založena"
+      new_group_request:
+        subject: "[Cyclescape] Uživatel \"%{user_name}\" požaduje založení nové skupiny \"%{group_name}\""
 
     thread_mailer:
       common:
