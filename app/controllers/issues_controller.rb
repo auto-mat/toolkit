@@ -109,10 +109,12 @@ class IssuesController < ApplicationController
       issues = issues.intersects(group.profile.location)
     end
 
-    if params[:count]
-       issues = issues.limit(params[:count])
-    else
-       issues = issues.limit(50)
+    if params[:count] != "all"
+       if params[:count]
+          issues = issues.limit(params[:count])
+       else
+          issues = issues.limit(50)
+       end
     end
 
     factory = RGeo::GeoJSON::EntityFactory.new
