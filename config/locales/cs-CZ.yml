@@ -96,10 +96,11 @@
     permission_denied: "Nemáte oprávnění přistupovat k této stránce."
   dashboards:
     show:
-      add_a_new_issue: "přidat nový podnět"
-      add_another_location: "přidat další oblast"
-      add_some_locations: "přidat oblasti"
-      areas_you_are_watching: "oblasti, které sledujete"
+      add_a_new_issue: "add a new issue"
+      add_another_location: "add another location"
+      add_some_locations: "add some locations"
+      areas_you_are_watching: "areas you are watching"
+      converted_to_issue: "Převedeno na podnět:"
       days_away:
         zero: "Dnes!"
         one: "Zítra!"
@@ -116,6 +117,7 @@
       my_threads_introduction: "Nejnovější aktualizace diskuzních vláken, do kterých jste zapsáni:"
       my_upcoming_deadline_introduction: "Nastávající termíny a data v diskuzních vláknech do kterých jste zapsáni:"
       no_upcoming_deadline_threads: "Nejste zapsáni do žádného vlákna s nastávajícími termíny nebo daty."
+      no_upcoming_deadline_threads: "Nejste zapojeni v žádnch diskuzních vláknech s nastávajícími termíny nebo daty."
       no_subscribed_threads_html:
         Zatím neodebíráte žádná vlákna. Můžete se podívat na %{threads_link},
         jestli tam není něco, s čím byste mohli pomoci, nebo můžete %{add_issue_link}?
@@ -129,6 +131,17 @@
       recent_threads: "nedávná diskuzní vlákna"
       subscribed_threads: "Odebíraná diskuzní vlákna"
       group_threads: "Témata místních skupin"
+      no_planning_applications_nearby_html: "There are no planning applications in your area. You could %{add_location_link}."
+      no_user_groups: "You aren't a member of any groups yet! When you join some groups, the latest threads will show up here."
+      <<: *planning_applications_search
+      planning_applications_in_your_area: "Planning applications in your %{location}"
+      planning_applications_introduction_html: "These are the most recent planning applications (courtesy of the PlanIt website) in your %{location_link}:"
+      planning_applications_lower: "planning applications"
+      planning_applications_introduction_html: "These are the most recent planning applications (courtesy of the PlanIt website) in your %{location_link}:"
+      recent_threads: "recent threads"
+      subscribed_threads: "Subscribed Threads"
+      thread_latest_activity: "%{time_ago} ago"
+      group_threads: "Group Threads"
       group_threads_desc_html:
         Nejnovější diskuzní vlákna na kterých pracovala některá z vašich místních skupin.
       my_priorities: "Důležitost"
@@ -349,9 +362,37 @@
       recent_issues: "Nedávné události v oblasti místní skupiny"
       recent_threads: "Poslední diskuze"
       view_membership_requests:
-        zero: "Přehled žádostí o členství"
-        one: "Zobrazit neschválenou žádost o členství"
-        other: "Zobrazit neschválené žádosti o členství (%{count})"
+        zero: "Review membership requests"
+        one: "View pending membership request"
+        other: "View pending membership requests (%{count})"
+  group_requests:
+    create:
+      requested: You have requested a new campaigning group, you will be notifed when it is created
+    new:
+      new_group_request_introduction: We moderate requests for new groups. You will be set as the first Committee member of the group, enabling you to administer it.
+    index: &group_requests_index
+      <<: *group_membership_requests_index
+      name: Requested Name
+      review: Review
+      actions: Actions
+      new_group: Create a New Group
+      group_email: Email
+      destroy: Remove request
+      no_message: There was no message included with this group request.
+    review:
+      <<: *group_requests_index
+      short_name: Short name
+      website: Website
+    confirm:
+      success: Group created
+      failure: Failed to create Group
+    destroy:
+      success: Group Request removed
+      failure: Failed to remove Group Request
+    reject:
+      success: Group request rejected
+      failure: Failed to reject group request
+
   home:
     show:
       introduction_html:
