@@ -179,6 +179,17 @@ class MessageThread < ActiveRecord::Base
     messages.empty? ? created_by : messages.last.created_by
   end
 
+  def default_centre
+    # returns location of (in order of preference)
+    # 1. issue (even if it is deleted)
+    # 2. group profile location (if the group has a profile and the profile has a location)
+    # 3. the creators location (if they have one)
+    # 4. nowhere in particular
+    locatable = Issue.unscoped.find issue_id if issue_id
+    locatable = locatable || (group.try :profile if group.try(:profile).try(:location)) || created_by.locations.first
+    locatable ? locatable.centre : Geo::NOWHERE_IN_PARTICULAR
+  end
+
   def upcoming_deadline_messages
     messages.except(:order).joins('JOIN deadline_messages dm ON messages.component_id = dm.id').
       where("messages.component_type = 'DeadlineMessage'").
@@ -192,7 +203,7 @@ class MessageThread < ActiveRecord::Base
   end
 
   def messages_text
-    messages.all.map { |m| m.searchable_text }.join(' ')
+    messages.all.map(&:searchable_text).join(' ')
   end
 
   # for auth checks

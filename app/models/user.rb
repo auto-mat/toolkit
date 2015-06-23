@@ -34,7 +34,8 @@
 
 class User < ActiveRecord::Base
   attr_accessible :email, :full_name, :display_name, :password, :password_confirmation, :disabled
-  attr_protected :role, :profile_attributes, :as => :admin
+  attr_protected :role
+  attr_protected :encrypted_password, as: :admin
 
   acts_as_voter
   acts_as_paranoid
@@ -77,6 +78,8 @@ class User < ActiveRecord::Base
   before_destroy :remove_thread_subscriptions
 
   scope :active, where('"users".disabled_at IS NULL AND "users".confirmed_at IS NOT NULL AND "users".deleted_at IS NULL')
+  scope :admin,  where(role: 'admin')
+  scope :public, joins(:profile).where(user_profiles: {visibility: 'public'})
 
   validates :full_name, presence: true
   validates :display_name, uniqueness: true, allow_blank: true
@@ -172,6 +175,10 @@ class User < ActiveRecord::Base
     Issue.intersects(buffered_locations)
   end
 
+  def planning_applications_near_locations
+    PlanningApplication.intersects(buffered_locations)
+  end
+
   def start_location
     # Figure out a suitable starting location for the user, e.g. for adding new issues.
 
@@ -219,6 +226,10 @@ class User < ActiveRecord::Base
     self.display_name = nil
   end
 
+  def display_name_or_anon
+    display_name || I18n.t('anon')
+  end
+
   def clear_profile
     profile.clear
   end
@@ -239,6 +250,16 @@ class User < ActiveRecord::Base
     thread_subscriptions.each do |subscription|
       subscription.destroy
     end
+  end
+
+  def can_view(other_users)
+    viewable_by_public_ids = other_users.public.pluck :id
+
+    my_group_ids = groups.pluck :id
+
+    in_my_groups = other_users.joins(:memberships).where(group_memberships: {group_id: my_group_ids}).pluck :id
+
+    self.class.where id: (in_my_groups + viewable_by_public_ids + [id]).compact
   end
 
   protected

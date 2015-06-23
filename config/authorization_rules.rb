@@ -6,6 +6,9 @@ authorization do
   role :admin do
     includes :member
     has_permission_on :admin_groups, :group_members, :group_memberships, :group_membership_requests, :group_profiles, :group_prefs, to: :manage
+    has_permission_on :group_requests do
+      to [:index, :review, :confirm, :reject, :destroy]
+    end
     has_permission_on :admin_users, to: :manage
     has_permission_on :admin_user_locations, to: [:manage, :geometry, :combined_geometry]
     has_permission_on :admin_home, to: :view
@@ -15,11 +18,19 @@ authorization do
     has_permission_on :messages, to: :censor
     has_permission_on :site_comments, to: :manage
     has_permission_on :user_prefs, :user_profiles, to: :manage
+    has_permission_on :users, to: [:view_profile, :view_full_name]
   end
 
   role :member do
     includes :guest
     has_permission_on :dashboards, to: [:show]
+    has_permission_on :group_requests do
+      to [:new, :create]
+    end
+    has_permission_on :group_requests do
+      to :cancel
+      if_attribute user: is { user }
+    end
     has_permission_on :group_members, :group_memberships do
       to :manage
       if_attribute committee_members: contains { user }
@@ -88,7 +99,8 @@ authorization do
     end
     has_permission_on :message_thread_tags, to: :update
     has_permission_on :message_thread_user_priorities, to: [:create, :update]
-    has_permission_on :message_photos, :message_links, :message_deadlines, :message_library_items, :message_documents, to: :create
+    has_permission_on :message_photos, :message_links, :message_deadlines,
+      :message_library_items, :message_documents, :message_street_views, to: :create
     has_permission_on :libraries, :library_documents, :library_notes, to: [:index, :new, :create, :show]
     has_permission_on :library_documents, :library_notes do
       to [:edit, :update]
@@ -96,6 +108,8 @@ authorization do
     end
 
     has_permission_on :library_tags, to: :update
+    has_permission_on :planning_applications, to: [:view, :geometry, :all_geometries, :search, :show_uid, :hide, :unhide]
+    has_permission_on :planning_application_issues, to: [:new, :create]
     has_permission_on :user_locations, to: [:manage, :geometry, :combined_geometry, :subscribe_to_threads]
     has_permission_on :user_prefs do
       to :manage
@@ -106,9 +120,22 @@ authorization do
       if_attribute id: is { user.id }
     end
     has_permission_on :user_profiles, to: :view
+    has_permission_on :users do
+      to :view_full_name
+      if_attribute id: is { user.id }
+      if_attribute groups: intersects_with { user.groups }
+    end
+    has_permission_on :users, to: :view_profile do
+      if_permitted_to :view_full_name
+      if_attribute profile: { visibility: 'public' }
+    end
   end
 
   role :guest do
+    has_permission_on :users do
+      to :view_profile
+      if_attribute profile: { visibility: 'public' }
+    end
     has_permission_on :dashboards, to: [:search]
     has_permission_on :devise_sessions, :devise_registrations, :devise_confirmations,
                       :devise_invitations, :devise_passwords, :devise_invitable_registrations, to: :manage

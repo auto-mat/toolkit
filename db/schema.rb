@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141129230955) do
+ActiveRecord::Schema.define(:version => 20150617214308) do
 
   create_table "deadline_messages", :force => true do |t|
     t.integer  "thread_id",         :null => false
@@ -76,10 +76,31 @@ ActiveRecord::Schema.define(:version => 20141129230955) do
     t.datetime "updated_at",                                                       :null => false
     t.spatial  "location",             :limit => {:srid=>4326, :type=>"geometry"}
     t.text     "joining_instructions"
+    t.string   "picture_uid"
+    t.string   "picture_name"
   end
 
   add_index "group_profiles", ["group_id"], :name => "index_group_profiles_on_group_id"
   add_index "group_profiles", ["location"], :name => "index_group_profiles_on_location", :spatial => true
+
+  create_table "group_requests", :force => true do |t|
+    t.string   "status"
+    t.integer  "user_id",                                      :null => false
+    t.integer  "actioned_by_id"
+    t.string   "name",                                         :null => false
+    t.string   "short_name",                                   :null => false
+    t.string   "default_thread_privacy", :default => "public", :null => false
+    t.string   "website"
+    t.string   "email",                                        :null => false
+    t.text     "message"
+    t.datetime "created_at",                                   :null => false
+    t.datetime "updated_at",                                   :null => false
+    t.text     "rejection_message"
+  end
+
+  add_index "group_requests", ["name"], :name => "index_group_requests_on_name", :unique => true
+  add_index "group_requests", ["short_name"], :name => "index_group_requests_on_short_name", :unique => true
+  add_index "group_requests", ["user_id"], :name => "index_group_requests_on_user_id"
 
   create_table "groups", :force => true do |t|
     t.string   "name",                                         :null => false
@@ -93,6 +114,15 @@ ActiveRecord::Schema.define(:version => 20141129230955) do
   end
 
   add_index "groups", ["short_name"], :name => "index_groups_on_short_name"
+
+  create_table "hide_votes", :force => true do |t|
+    t.integer  "planning_application_id"
+    t.integer  "user_id"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+  end
+
+  add_index "hide_votes", ["planning_application_id", "user_id"], :name => "index_hide_votes_on_planning_application_id_and_user_id", :unique => true
 
   create_table "inbound_mails", :force => true do |t|
     t.string   "recipient",                        :null => false
@@ -230,6 +260,25 @@ ActiveRecord::Schema.define(:version => 20141129230955) do
     t.datetime "created_at",    :null => false
   end
 
+  create_table "planning_applications", :force => true do |t|
+    t.text     "address"
+    t.string   "postcode"
+    t.text     "description"
+    t.string   "openlylocal_council_url"
+    t.text     "url"
+    t.string   "uid",                                                                                :null => false
+    t.integer  "issue_id"
+    t.datetime "created_at",                                                                         :null => false
+    t.datetime "updated_at",                                                                         :null => false
+    t.spatial  "location",                :limit => {:srid=>4326, :type=>"geometry"}
+    t.string   "authority_name"
+    t.date     "start_date"
+    t.integer  "hide_votes_count",                                                    :default => 0
+  end
+
+  add_index "planning_applications", ["issue_id"], :name => "index_planning_applications_on_issue_id"
+  add_index "planning_applications", ["uid"], :name => "index_planning_applications_on_uid", :unique => true
+
   create_table "site_comments", :force => true do |t|
     t.integer  "user_id"
     t.string   "name"
@@ -241,6 +290,22 @@ ActiveRecord::Schema.define(:version => 20141129230955) do
     t.datetime "viewed_at"
     t.datetime "deleted_at"
   end
+
+  create_table "street_view_messages", :force => true do |t|
+    t.integer  "message_id"
+    t.integer  "thread_id"
+    t.integer  "created_by_id"
+    t.decimal  "heading"
+    t.decimal  "pitch"
+    t.datetime "created_at",                                                :null => false
+    t.datetime "updated_at",                                                :null => false
+    t.spatial  "location",      :limit => {:srid=>4326, :type=>"geometry"}
+    t.text     "caption"
+  end
+
+  add_index "street_view_messages", ["location"], :name => "index_street_view_messages_on_location", :spatial => true
+  add_index "street_view_messages", ["message_id"], :name => "index_street_view_messages_on_message_id"
+  add_index "street_view_messages", ["thread_id"], :name => "index_street_view_messages_on_thread_id"
 
   create_table "tags", :force => true do |t|
     t.string "name", :null => false
@@ -257,9 +322,7 @@ ActiveRecord::Schema.define(:version => 20141129230955) do
   end
 
   add_index "thread_subscriptions", ["thread_id"], :name => "index_thread_subscriptions_on_thread_id"
-  add_index "thread_subscriptions", ["thread_id"], :name => "sub_thread_id"
   add_index "thread_subscriptions", ["user_id"], :name => "index_thread_subscriptions_on_user_id"
-  add_index "thread_subscriptions", ["user_id"], :name => "sub_user_id"
 
   create_table "thread_views", :force => true do |t|
     t.integer  "user_id",   :null => false
@@ -287,7 +350,7 @@ ActiveRecord::Schema.define(:version => 20141129230955) do
     t.string  "involve_my_groups",       :default => "notify",    :null => false
     t.boolean "involve_my_groups_admin", :default => false,       :null => false
     t.boolean "enable_email",            :default => false,       :null => false
-    t.string  "profile_visibility",      :default => "public",    :null => false
+    t.string  "zz_profile_visibility",   :default => "public",    :null => false
   end
 
   add_index "user_prefs", ["enable_email"], :name => "index_user_prefs_on_enable_email"
@@ -297,10 +360,11 @@ ActiveRecord::Schema.define(:version => 20141129230955) do
   add_index "user_prefs", ["user_id"], :name => "index_user_prefs_on_user_id", :unique => true
 
   create_table "user_profiles", :force => true do |t|
-    t.integer "user_id",     :null => false
+    t.integer "user_id",                           :null => false
     t.string  "picture_uid"
     t.string  "website"
     t.text    "about"
+    t.string  "visibility",  :default => "public", :null => false
   end
 
   add_index "user_profiles", ["user_id"], :name => "index_user_profiles_on_user_id"
@@ -340,6 +404,7 @@ ActiveRecord::Schema.define(:version => 20141129230955) do
     t.string   "invited_by_type"
     t.datetime "deleted_at"
     t.datetime "last_seen_at"
+    t.datetime "invitation_created_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"

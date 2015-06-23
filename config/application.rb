@@ -74,5 +74,8 @@ module Cyclescape
 
     # Google analytics
     config.analytics = { google: { account_id: 'UA-22281359-9', base_domain: 'cyklistesobe.cz' } }
+
+    # Planning applications
+    config.planning_applications_url = "http://www.planit.org.uk/find/applics/json"
   end
 end

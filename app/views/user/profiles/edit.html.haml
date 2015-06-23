@@ -4,7 +4,7 @@
   .sidebar
     = @user.thumbnail_image
   .form
-    = semantic_form_for @profile, as: :user_profile, url: user_profile_path do |f|
+    = semantic_form_for @profile, as: :user_profile, url: user_profile_path(@user) do |f|
       = f.inputs do
         = f.input :picture, as: :file
         = f.input :retained_picture, as: :hidden
@@ -12,4 +12,9 @@
           = f.input :remove_picture, as: :boolean
         = f.input :website
         = f.input :about
+        %p= t ".visibility_guidance_html"
+        = f.input :visibility,
+            as: :radio,
+            collection: UserProfile::VISIBILITY_OPTIONS.map {|n| [t(".profile_#{n}"), n] }
+
       = f.actions

@@ -7,7 +7,8 @@
             %a(href="https://www.facebook.com/prahou.na.kole" class="facebook")
               = t(".facebook_page")
           %li
-            %a(href="https://twitter.com/cyclescape" class="twitter") Cyclescape Twitter account
+            %a(href="https://twitter.com/cyclescape" class="twitter")
+              = t(".twitter_page")
           %li
             %small= t(".github_page_link_html")
           %li
@@ -18,7 +19,11 @@
             %small= link_to t(".cyclescape_blog"), 'http://blog.cyclescape.org/'
           %li
             %small= link_to t(".user_guide"), 'http://blog.cyclescape.org/guide/'
+          %li
+            %small= link_to t(".privacy"), page_path('privacypolicy')
     %div{:id => 'supportlogos'}
+
+      %p= t(".osm_credit_html")
       %p= t(".supportlogos_introduction")
       %ul
         %li
@@ -32,5 +37,3 @@
             = link_to image_tag("supportlogos/cambridgesustainablecity.png", {title: t(".funding_from", :name => 'Cambridge Sustainable City'), :alt => 'Logo'}), 'http://www.cambridge.gov.uk/ccm/navigation/environment-and-recycling/sustainable-city/', :target => "_blank"
         %li
           = link_to image_tag("supportlogos/ctc.png", {title: t(".funding_from", :name => 'CTC'), :alt => 'Logo'}), 'http://www.ctc.org.uk/', :target => "_blank"
-        %li
-          = link_to image_tag("supportlogos/openlylocal.png", {title: t(".planning_application_data"), :alt => 'Logo'}), 'http://openlylocal.com/', :target => "_blank"

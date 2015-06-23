@@ -1,4 +1,5 @@
 Cyclescape::Application.routes.draw do
+
   # Pretty evil but beats copy pasting
   def issues_route(opts = {})
     resources :issues, opts do
@@ -21,6 +22,19 @@ Cyclescape::Application.routes.draw do
   end
 
   devise_for :users, controllers: { confirmations: 'confirmations' }
+
+  scope 'settings' do
+    get '/edit', to: "user/profiles#edit", as: :current_user_profile_edit
+    get '/preferences', to: "user/prefs#edit", as: :current_user_prefs_edit
+    get '/locations', to: "user/locations#index", as: :current_user_locations
+    get '/', to: "user/profiles#show", as: :current_user_profile
+  end
+  devise_scope :user do
+    scope 'settings' do
+      get '/account', to: 'devise_invitable/registrations#edit', as: :edit_user_registration
+      put '/account', to: 'users/registrations#update'
+    end
+  end
 
   constraints(SubdomainConstraint) do
     root to: 'groups#show'
@@ -70,6 +84,14 @@ Cyclescape::Application.routes.draw do
     end
   end
 
+  resources :group_requests do
+    member do
+      get 'review'
+      put 'confirm'
+      put 'reject'
+    end
+  end
+
   resources :threads, controller: 'message_threads' do
     resources :messages do
       put 'censor', on: :member
@@ -79,6 +101,7 @@ Cyclescape::Application.routes.draw do
     scope module: :message do
       resources :photos, only: [:create, :show]
       resources :links, only: [:create]
+      resources :street_views, only: [:create]
       resources :deadlines, only: [:create]
       resources :library_items, only: [:create]
       resources :documents, only: [:create, :show]
@@ -97,6 +120,17 @@ Cyclescape::Application.routes.draw do
       resources :documents
       resources :notes
       resources :tags, only: [:update]
+    end
+  end
+
+  resources :planning_applications do
+    get :search, on: :collection
+    get 'uid/*uid', to: :show_uid, on: :collection
+    get :geometry, on: :member
+    put :hide, on: :member
+    put :unhide, on: :member
+    scope module: "planning_application" do
+      resource :issue
     end
   end
 
@@ -128,61 +162,4 @@ Cyclescape::Application.routes.draw do
   match 'pages/:page', controller: 'pages', action: 'show', as: :page, via: :get
 
   root to: 'home#show'
-
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
-
-  # Sample of regular route:
-  #   match 'products/:id' => 'catalog#view'
-  # Keep in mind you can assign values other than :controller and :action
-
-  # Sample of named route:
-  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
-  # This route can be invoked with purchase_url(:id => product.id)
-
-  # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
-  # Sample resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
-
-  # Sample resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Sample resource route with more complex sub-resources
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', :on => :collection
-  #     end
-  #   end
-
-  # Sample resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
-
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
-
-  # See how all your routes lay out with "rake routes"
-
-  # This is a legacy wild controller route that's not recommended for RESTful applications.
-  # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id(.:format)))'
 end
