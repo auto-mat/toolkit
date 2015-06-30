@@ -580,7 +580,9 @@
       application_version_html: "Verze aplikace: %{version}"
       github_page_link_html: "Zdrojové kódy jsou dostupné na <a href='https://github.com/auto-mat/toolkit/tree/deploy'>GitHubu</a>"
       whats_new: "Co je nového?"
-      supportlogos_introduction_html: "Web Cyklisté sobě vznikl lokalizací aplikace <a href='http://www.cyclestreets.net/'>Cyclescape</a>. V letech 2014 – 2016 je projekt podpořen <a href='http://www.fondnno.cz'>grantem z Islandu, Lichtenštejnska a Norska</a> v rámci <a href='http://www.eeagrants.cz'>EHP fondů</a>. Další podpora: <a href='http://www.nadacepartnerstvi.cz'>Nadace Partnerství</a>, <a href='http://www.nadacevia.cz'>Nadace Via -  fond T-Mobile.</a>"
+      supportlogos_introduction_html: "Web Cyklisté sobě vznikl lokalizací aplikace <a href='http://www.cyclestreets.net/'>Cyclescape</a>.
+         <br/><br/>
+         V rámci projektu Podpora udržitelného rozvoje skrze komunitní spolupráci podpořeno grantem z Islandu, Lichtenštejnska a Norska v rámci EHP fondů. <a href='http://www.fondnno.cz'>www.fondnno.cz</a> a <a href='http://www.eeagrants.cz'>www.eeagrants.cz</a>.  "
       funding_from: "Za podpory %{name}"
       funding_from_and_created_by: "Web Cyklisté sobě byl podpořen %{name}"
       planning_application_data: "Planning application data from Openly Local"
