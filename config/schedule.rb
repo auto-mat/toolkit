@@ -21,7 +21,7 @@
 
 every 5.minutes do
   runner 'MailboxReader.process_all_mailboxes'
-  env :MAILTO, 'cyclescape-errors@cyklistesobe.cz'
+  env :MAILTO, 'petr.dlouhy@auto-mat.cz'
 end
 
 # This pulls in application from 5 days ago to 12 days ago (i.e. a weeks worth)
@@ -36,10 +36,10 @@ end
 # (1..180).step(15).each {|n_day| PlanningApplicationWorker.new(n_day.days.ago.to_date).process! }
 every 1.day, at: '1:02 am' do
   runner "PlanningApplicationWorker.new.process!"
-  env :MAILTO, 'cyclescape-errors@cyclestreets.net'
+  env :MAILTO, 'petr.dlouhy@auto-mat.cz'
 end
 
 every 1.day, at: '2:02 am' do
   runner "PlanningApplication.remove_old"
-  env :MAILTO, 'cyclescape-errors@cyclestreets.net'
+  env :MAILTO, 'petr.dlouhy@auto-mat.cz'
 end
