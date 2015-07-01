@@ -846,7 +846,10 @@
       street_view_message: Street View
   pages:
     changelog:
-      github_history_link_html: "<a href='https://github.com/auto-mat/toolkit/commits/deploy'>GitHub</a>."
+      github_history_link_html: "<a href='https://github.com/auto-mat/toolkit/commits/deploy'>GitHub</a>u."
+      header: "Co je nového?"
+      introduction: "Toto je přehled nedávných změn na tété stránce.
+    Kompletní detailní historii vývoje můžete sledovat na"
   planning_application:
     issues:
       new:
