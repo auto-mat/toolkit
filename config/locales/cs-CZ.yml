@@ -761,7 +761,7 @@
         catch_up_guidance_html: "Pro zachycení existujících diskuzí, můžete %{subscribe_existing_link} v těchto oblastech."
         category: "Kategorie"
         combined_locations: "Kombinovaná umístění"
-        combined_locations_guidance: "Tato mapa ukazuje všechna vaše umístění zkombinovaná dohromady. Vaše umístění používáme abychom určili, které podněty jsou pro vás důležité a které místní skupiny by vás mohli zajímat."
+        combined_locations_guidance: "Tato mapa ukazuje všechna vaše umístění zkombinovaná dohromady. Vaše umístění používáme abychom určili, které podněty jsou pro vás důležité a které místní skupiny by vás mohly zajímat."
         combined_locations_guidance_none_html: "Pokud chcete dostávat upozornění na nově vytvořené podněty v těchto oblastech a volitelně sledovat diskuzní vlákna o těchto podnětech, můžete %{edit_prefs_link}."
         combined_locations_guidance_notify_html: "V současné době dostáváte upozornění na nové podněty v těchto oblastech, ale nesledujete automaticky diskuzní vlákna o těchto podnětech. Pokud chcete změnit nastavení, můžete %{edit_prefs_link}."
         combined_locations_guidance_subscribe_html: "V současné době dostáváte upozornění na nové podněty v těchto oblastech, a automaticky sledujete diskuzní vlákna o těchto podnětech. Pokud chcete změnit nastavení, můžete %{edit_prefs_link}."
