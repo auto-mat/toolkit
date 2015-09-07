@@ -581,7 +581,7 @@
       github_page_link_html: "Zdrojové kódy jsou dostupné na <a href='https://github.com/auto-mat/toolkit/tree/deploy'>GitHubu</a>"
       whats_new: "Co je nového?"
       supportlogos_introduction_html: "Web Cyklisté sobě vznikl lokalizací aplikace <a href='http://www.cyclestreets.net/'>Cyclescape</a>.
-         <br/><br/>
+         <br/><br/><br/>
          V rámci projektu Podpora udržitelného rozvoje skrze komunitní spolupráci podpořeno grantem z Islandu, Lichtenštejnska a Norska v rámci EHP fondů. <a href='http://www.fondnno.cz'>www.fondnno.cz</a> a <a href='http://www.eeagrants.cz'>www.eeagrants.cz</a>.  "
       funding_from: "Za podpory %{name}"
       funding_from_and_created_by: "Web Cyklisté sobě byl podpořen %{name}"
