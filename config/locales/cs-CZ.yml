@@ -582,7 +582,7 @@
       whats_new: "Co je nového?"
       supportlogos_introduction_html: "Web Cyklisté sobě vznikl lokalizací aplikace <a href='http://www.cyclestreets.net/'>Cyclescape</a>.
          <br/><br/><br/>
-         V rámci projektu Podpora udržitelného rozvoje skrze komunitní spolupráci podpořeno grantem z Islandu, Lichtenštejnska a Norska v rámci EHP fondů. <a href='http://www.fondnno.cz'>www.fondnno.cz</a> a <a href='http://www.eeagrants.cz'>www.eeagrants.cz</a>.  "
+         Projekt Cyklisté Sobě byl v rámci projektu Podpora udržitelného rozvoje skrze komunitní spolupráci podpořen grantem z Islandu, Lichtenštejnska a Norska v rámci EHP fondů <a href='http://www.fondnno.cz'>www.fondnno.cz</a> a <a href='http://www.eeagrants.cz'>www.eeagrants.cz</a>.  "
       funding_from: "Za podpory %{name}"
       funding_from_and_created_by: "Web Cyklisté sobě byl podpořen %{name}"
       planning_application_data: "Planning application data from Openly Local"
