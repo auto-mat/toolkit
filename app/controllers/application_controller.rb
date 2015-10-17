@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   before_filter :no_disabled_users
   before_filter :set_auth_user
   before_filter :load_group_from_subdomain
+  before_filter :set_page_description
+  before_filter :set_page_image
   before_filter :set_page_title
   before_filter :set_last_seen_at, if: proc { |p| user_signed_in? && (session[:last_seen_at] == nil || session[:last_seen_at] < 15.minutes.ago) }
   after_filter :remember_current_group
@@ -88,6 +90,24 @@ class ApplicationController < ActionController::Base
       end
     end
   end
+
+  def set_page_description(description = nil)
+    @page_description = description
+  end
+
+  def page_description
+    @page_description
+  end
+  helper_method :page_description
+
+  def set_page_image(description = nil)
+    @page_image = description
+  end
+
+  def page_image
+    @page_image
+  end
+  helper_method :page_image
 
   def set_page_title(title = nil)
     if title

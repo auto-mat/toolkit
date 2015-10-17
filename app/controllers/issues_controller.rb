@@ -17,6 +17,8 @@ class IssuesController < ApplicationController
     issue = Issue.find(params[:id])
     @issue = IssueDecorator.decorate(issue)
     set_page_title @issue.title
+    set_page_description @issue.description
+    set_page_image @issue.photo.url
     @threads = ThreadListDecorator.decorate(@issue.threads.order_by_latest_message.includes(:group))
     @tag_panel = TagPanelDecorator.new(@issue, form_url: issue_tags_path(@issue))
   end
