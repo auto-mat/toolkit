@@ -7,7 +7,7 @@ env :HOME, "/var/www/cyclescape/shared/bundle"
 # http://en.wikipedia.org/wiki/Cron
 
 # Learn more: http://github.com/javan/whenever
-env 'MAILTO', 'cyclescape-errors@cyclestreets.net'
+env 'MAILTO', 'petr.dlouhy@auto-mat.cz'
 
 every 5.minutes do
   rake "scheduled:process_all_mailboxes"
