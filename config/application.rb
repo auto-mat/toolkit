@@ -55,7 +55,7 @@ module Cyclescape
     config.cache_store = :redis_store, "redis://localhost:6379/1",  { expires_in: 1.week }
 
     # ActionMailer default URL options
-    config.action_mailer.default_url_options = { host: 'www.cyclescape.org' }
+    config.action_mailer.default_url_options = { host: 'www.cyklistesobe.cz' }
 
     # Git info
     config.git_hash = `git rev-parse --short HEAD`.chomp
